@@ -1,5 +1,6 @@
 package andrey.chernikovich.data.net
 
+import andrey.chernikovich.data.entity.BaseItemResponse
 import andrey.chernikovich.data.entity.ItemResponse
 import andrey.chernikovich.data.entity.TokenResponse
 import io.reactivex.Observable
@@ -19,4 +20,7 @@ interface RestApi {
     //    https://us.api.battle.net/data/wow/token/?namespace=dynamic-us&locale=en_US&access_token=tcnryg8fyvwqngza5m4b4xyc
     @GET("/data/wow/token/?namespace=dynamic-us&locale=en_US&access_token=tcnryg8fyvwqngza5m4b4xyc")
     fun getTokenUs(): Observable<TokenResponse>
+
+    @GET("laruson/wow_auc/master/items.txt")
+    fun getItems(): Observable<List<BaseItemResponse>>
 }

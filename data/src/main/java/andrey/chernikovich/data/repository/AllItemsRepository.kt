@@ -1,6 +1,7 @@
 package andrey.chernikovich.data.repository
 
 import andrey.chernikovich.data.entity.BaseItemResponse
+import android.util.Log
 import com.google.gson.Gson
 import io.reactivex.Observable
 import java.io.BufferedReader
@@ -9,8 +10,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class AllItemsRepository {
-    //TODO додлеать
-    private val src = ""
+    private val src = "https://raw.githubusercontent.com/laruson/wow_auc/master/items.txt"
 
     fun getAllItems(): Observable<ArrayList<BaseItemResponse>>{
         val url = URL(src)
@@ -24,6 +24,7 @@ class AllItemsRepository {
             val gson = Gson()
             list.add(gson.fromJson(reader, BaseItemResponse::class.java))
             reader.close()
+
         } finally {
             connect.disconnect()
 

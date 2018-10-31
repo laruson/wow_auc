@@ -1,24 +1,24 @@
 package andrey.chernikovich.data.repository
 
 import andrey.chernikovich.data.entity.transformToDomain
-import andrey.chernikovich.data.net.RestService
+import andrey.chernikovich.data.net.RestServiceItem
 import andrey.chernikovich.domain.entity.BaseItem
-import andrey.chernikovich.domain.entity.Item
 import andrey.chernikovich.domain.entity.ItemSearch
 import andrey.chernikovich.domain.repository.ItemRepository
-import io.reactivex.Completable
+import android.util.Log
 import io.reactivex.Observable
+import io.reactivex.rxkotlin.subscribeBy
 
-class ItemRepositoryImpl : ItemRepository {
+class ItemRepositoryImpl(private val restService: RestServiceItem) : ItemRepository {
 
     override fun getItems(): Observable<List<BaseItem>> {
-        val allItem = AllItemsRepository().getAllItems()
-        val listItem = allItem.map { baseItemList ->
-            baseItemList.map { baseItem ->
-                baseItem.transformToDomain()
+
+        return restService.getItems().map {
+            it.map {
+                it.transformToDomain()
             }
         }
-        return listItem
+
 
     }
 

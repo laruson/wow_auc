@@ -5,5 +5,4 @@ data class Item(val id: String,
                 val minimumBuyout: Int,
                 val marketValue: Int,
                 val historicalPrice: Int,
-                val quantity: Int,
-                val icon:String) : DomainEntity
+                val quantity: Int) : DomainEntity
