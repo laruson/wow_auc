@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/choise_region"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/region"
+        android:icon="@drawable/ic_region_black_24dp"
+        android:title="@string/region"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/eu"
+                android:title="@string/eu_region" />
+            <item
+                android:id="@+id/us"
+                android:title="@string/us_region" />
+        </menu>
+    </item>
+
+
+
+</menu>
