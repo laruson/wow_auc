@@ -1,29 +1,35 @@
-{"id":"165234","name":"Swamp Medic\u0027s Gloves","icon":""}
-{"id":"165235","name":"Gloves of the Scaled Devoted","icon":""}
-{"id":"165236","name":"Alpaca Wool Leggings","icon":""}
-{"id":"165237","name":"Zo\u0027bal Spirit Sash","icon":""}
-{"id":"165238","name":"Silent Scavenger Footpads","icon":""}
-{"id":"165239","name":"Swampstalker Leggings","icon":""}
-{"id":"165240","name":"Hir\u0027eek Hide Cuffs","icon":""}
-{"id":"165241","name":"Kimbul\u0027s Leggings of Redemption","icon":""}
-{"id":"165242","name":"Bracers of the Swamp Hunter","icon":""}
-{"id":"165243","name":"Grips of Zem\u0027lan","icon":""}
-{"id":"165244","name":"Torga Scale Boots","icon":""}
-{"id":"165245","name":"Akunda\u0027s Grounding Girdle","icon":""}
-{"id":"165246","name":"Gauntlets of Scavenged Plates","icon":""}
-{"id":"165247","name":"Zul\u0027jan Camp Gauntlets","icon":""}
-{"id":"165248","name":"Gloomplate Girdle","icon":""}
-{"id":"165249","name":"Scorched Sandstalkers","icon":""}
-{"id":"165357","name":"Wolf\u0027s Den","icon":"inv_scroll_11"}
-{"id":"165358","name":"Stonefist Watch","icon":"inv_scroll_11"}
-{"id":"165359","name":"Windfall Cavern","icon":"inv_scroll_11"}
-{"id":"165360","name":"Stonetusk Watch","icon":"inv_scroll_11"}
-{"id":"165361","name":"Hillcrest Pasture","icon":"inv_scroll_11"}
-{"id":"165362","name":"Swiftwind Post","icon":"inv_scroll_11"}
-{"id":"165363","name":"Mudfisher Cove","icon":"inv_scroll_11"}
-{"id":"165364","name":"Vulture\u0027s Nest","icon":"inv_scroll_11"}
-{"id":"165365","name":"Grimwatt\u0027s Crash","icon":"inv_scroll_11"}
-{"id":"165366","name":"Verdant Hollow","icon":"inv_scroll_11"}
-{"id":"165367","name":"Veiled Grotto","icon":"inv_scroll_11"}
-{"id":"165368","name":"Mugamba Overlook","icon":"inv_scroll_11"}
-{"id":"165369","name":"Mistvine Ledge","icon":"inv_scroll_11"}
+{items:[{
+"id":"165234",
+"name":"Swamp Medic\u0027s Gloves",
+"icon":""
+},
+{"id":"165235","name":"Gloves of the Scaled Devoted","icon":""},
+{"id":"165236","name":"Alpaca Wool Leggings","icon":""},
+{"id":"165237","name":"Zo\u0027bal Spirit Sash","icon":""},
+{"id":"165238","name":"Silent Scavenger Footpads","icon":""},
+{"id":"165239","name":"Swampstalker Leggings","icon":""},
+{"id":"165240","name":"Hir\u0027eek Hide Cuffs","icon":""},
+{"id":"165241","name":"Kimbul\u0027s Leggings of Redemption","icon":""},
+{"id":"165242","name":"Bracers of the Swamp Hunter","icon":""},
+{"id":"165243","name":"Grips of Zem\u0027lan","icon":""},
+{"id":"165244","name":"Torga Scale Boots","icon":""},
+{"id":"165245","name":"Akunda\u0027s Grounding Girdle","icon":""},
+{"id":"165246","name":"Gauntlets of Scavenged Plates","icon":""},
+{"id":"165247","name":"Zul\u0027jan Camp Gauntlets","icon":""},
+{"id":"165248","name":"Gloomplate Girdle","icon":""},
+{"id":"165249","name":"Scorched Sandstalkers","icon":""},
+{"id":"165357","name":"Wolf\u0027s Den","icon":"inv_scroll_11"},
+{"id":"165358","name":"Stonefist Watch","icon":"inv_scroll_11"},
+{"id":"165359","name":"Windfall Cavern","icon":"inv_scroll_11"},
+{"id":"165360","name":"Stonetusk Watch","icon":"inv_scroll_11"},
+{"id":"165361","name":"Hillcrest Pasture","icon":"inv_scroll_11"},
+{"id":"165362","name":"Swiftwind Post","icon":"inv_scroll_11"},
+{"id":"165363","name":"Mudfisher Cove","icon":"inv_scroll_11"},
+{"id":"165364","name":"Vulture\u0027s Nest","icon":"inv_scroll_11"},
+{"id":"165365","name":"Grimwatt\u0027s Crash","icon":"inv_scroll_11"},
+{"id":"165366","name":"Verdant Hollow","icon":"inv_scroll_11"},
+{"id":"165367","name":"Veiled Grotto","icon":"inv_scroll_11"},
+{"id":"165368","name":"Mugamba Overlook","icon":"inv_scroll_11"},
+{"id":"165369","name":"Mistvine Ledge","icon":"inv_scroll_11"},
+]
+}

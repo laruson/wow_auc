@@ -1,4 +1,4 @@
-{"id":"17","name":"Martin Fury","icon":"inv_chest_samurai"}
+{{"id":"17","name":"Martin Fury","icon":"inv_chest_samurai"}
 {"id":"25","name":"Worn Shortsword","icon":"inv_sword_04"}
 {"id":"35","name":"Bent Staff","icon":"inv_staff_08"}
 {"id":"36","name":"Worn Mace","icon":"inv_mace_03"}
@@ -343,3 +343,4 @@
 {"id":"994","name":"Tome of Ice Armor","icon":"inv_misc_book_07"}
 {"id":"996","name":"Ring of Righteous Flame (TEST)","icon":"inv_jewelry_ring_03"}
 {"id":"997","name":"Fire Sword of Crippling","icon":"inv_sword_04"}
+}
