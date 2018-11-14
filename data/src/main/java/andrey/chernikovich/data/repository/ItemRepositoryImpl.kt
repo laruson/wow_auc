@@ -1,35 +1,54 @@
 package andrey.chernikovich.data.repository
 
-import andrey.chernikovich.data.entity.transformToDomain
-import andrey.chernikovich.data.net.RestServiceItem
+import andrey.chernikovich.data.db.dao.ItemDao
+import andrey.chernikovich.data.db.entity.mapper.transformToBaseItem
+import andrey.chernikovich.data.db.utils.items
+import andrey.chernikovich.data.net.entity.mapper.transformToDomain
+import andrey.chernikovich.data.net.rest.service.RestServiceItem
 import andrey.chernikovich.domain.entity.BaseItem
+import andrey.chernikovich.domain.entity.Item
 import andrey.chernikovich.domain.entity.ItemSearch
 import andrey.chernikovich.domain.repository.ItemRepository
 import android.util.Log
+import io.reactivex.Flowable
 import io.reactivex.Observable
-import io.reactivex.rxkotlin.subscribeBy
 
-class ItemRepositoryImpl(private val restService: RestServiceItem) : ItemRepository {
+class ItemRepositoryImpl(private val restService: RestServiceItem,
+                         private val itemDao: ItemDao) : ItemRepository {
 
-    override fun getItems(): Observable<List<BaseItem>> {
-
-        return restService.getItems().map {
-            it.map {
-                it.transformToDomain()
-            }
+    override fun getItemById(id: Int): Observable<Item> {
+        return restService.getItemById(id).map { ItemResponse ->
+            ItemResponse.transformToDomain()
         }
-
-
     }
 
-    override fun search(search: ItemSearch): Observable<List<BaseItem>> {
-        val searchList = ArrayList<BaseItem>()
-        getItems().map { list ->
-            list.map { item ->
-                if (item.name.toLowerCase().contains(search.name.toLowerCase()))
-                    searchList.add(item)
+    override fun getItems(): Flowable<List<BaseItem>> {
+        return itemDao.getItems().map { list ->
+            if (list.isEmpty()) {
+                itemDao.insert(items)
+            }
+            list.map { itemDB ->
+                itemDB.transformToBaseItem()
+            }
+
+
+        }
+    }
+
+    override fun getItems(count: Int): Flowable<List<BaseItem>> {
+        return itemDao.getItems(count).map { list ->
+            list.map { itemDB ->
+                itemDB.transformToBaseItem()
             }
         }
-        return Observable.just(searchList)
     }
+
+    override fun search(search: ItemSearch): Flowable<List<BaseItem>> {
+        return itemDao.searchItem(search.name).map { list ->
+            list.map { itemDB ->
+                itemDB.transformToBaseItem()
+            }
+        }
+    }
+
 }

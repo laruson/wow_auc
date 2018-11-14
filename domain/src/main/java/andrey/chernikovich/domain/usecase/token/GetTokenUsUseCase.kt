@@ -8,10 +8,11 @@ import io.reactivex.Observable
 
 class GetTokenUsUseCase(postExecutorThread: PostExecutorThread,
                         private val tokenRepository: TokenRepository) : BaseUseCase(postExecutorThread), TokenUseCase {
-
     override fun getToken(): Observable<Token> {
         return tokenRepository.getTokenUs()
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)
     }
+
+
 }

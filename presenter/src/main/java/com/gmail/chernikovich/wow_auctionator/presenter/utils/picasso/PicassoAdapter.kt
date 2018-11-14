@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso
 fun setImage(url: String, image: ImageView, progressItem: ProgressBar) {
     Picasso.get()
             .load(url)
-            .transform(CircularTransformation())
+//            .transform(CircularTransformation())
             .into(image, object : Callback {
                 override fun onSuccess() {
                     progressItem.visibility = View.GONE

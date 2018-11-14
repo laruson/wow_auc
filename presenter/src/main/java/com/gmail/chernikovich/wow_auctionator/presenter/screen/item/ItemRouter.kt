@@ -6,10 +6,10 @@ import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.find.FindIte
 import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.info.InfoItemFragment
 
 class ItemRouter(activity: ItemActivity) : BaseRouter<ItemActivity>(activity) {
-    fun gotoItemInfo(id: String) {
+    fun gotoItemInfo(id: Int) {
         replaceFragment(FindItemFragment.getInstance(),
                 activity.supportFragmentManager,
-                InfoItemFragment.getInstance(),
+                InfoItemFragment.getInstance(id),
                 R.id.conteiner_find_item,
                 true)
     }

@@ -1,10 +1,15 @@
 package com.gmail.chernikovich.wow_auctionator.presenter.screen.item.find
 
 import android.arch.lifecycle.ViewModelProviders
+import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.gmail.chernikovich.wow_auctionator.R
 import com.gmail.chernikovich.wow_auctionator.databinding.FragmentFindItemBinding
 import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseMvvmFragment
 import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.ItemRouter
+import com.jakewharton.rxbinding2.widget.RxTextView
+import io.reactivex.rxkotlin.subscribeBy
 
 class FindItemFragment : BaseMvvmFragment<
         FindItemViewModel,
@@ -12,7 +17,7 @@ class FindItemFragment : BaseMvvmFragment<
         FragmentFindItemBinding>() {
 
     companion object {
-        fun getInstance() : FindItemFragment{
+        fun getInstance(): FindItemFragment {
             return FindItemFragment()
         }
     }
@@ -22,4 +27,16 @@ class FindItemFragment : BaseMvvmFragment<
     }
 
     override fun provideLayoutId(): Int = R.layout.fragment_find_item
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.recycler.adapter = viewModel.adapter
+        binding.recycler.layoutManager = LinearLayoutManager(view.context)
+        binding.recycler.setHasFixedSize(true)
+        RxTextView.textChanges(binding.itemSearch)
+                .subscribeBy {
+                    viewModel.search(it.toString())
+                }
+    }
 }

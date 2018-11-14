@@ -14,12 +14,13 @@
         android:orientation="vertical">
 
         <AutoCompleteTextView
-            android:id="@+id/item_name"
+            android:id="@+id/itemSearch"
             android:hint="@string/search_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:visibility="@{!viewModel.isProgressEnabled}">

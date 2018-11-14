@@ -4,12 +4,17 @@ import andrey.chernikovich.domain.entity.BaseItem
 import andrey.chernikovich.domain.entity.Item
 import andrey.chernikovich.domain.entity.ItemSearch
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 
 interface ItemRepository : BaseRepository {
 
-    fun getItems(): Observable<List<BaseItem>>
+    fun getItems(): Flowable<List<BaseItem>>
 
-    fun search(search: ItemSearch): Observable<List<BaseItem>>
+    fun getItems(count:Int): Flowable<List<BaseItem>>
+
+    fun search(search: ItemSearch): Flowable<List<BaseItem>>
+
+    fun getItemById(id:Int):Observable<Item>
 
 }

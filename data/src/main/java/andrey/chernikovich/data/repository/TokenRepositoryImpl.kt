@@ -1,17 +1,20 @@
 package andrey.chernikovich.data.repository
 
-import andrey.chernikovich.data.entity.transformToDomain
-import andrey.chernikovich.data.net.RestServiceToken
+import andrey.chernikovich.data.db.dao.ItemDao
+import andrey.chernikovich.data.net.entity.mapper.transformToDomain
+import andrey.chernikovich.data.net.rest.service.RestServiceToken
 import andrey.chernikovich.domain.entity.Token
 import andrey.chernikovich.domain.repository.TokenRepository
+import android.util.Log
 import io.reactivex.Observable
 
 class TokenRepositoryImpl(private val restService: RestServiceToken) : TokenRepository {
+
     override fun getTokenEu(): Observable<Token> {
         return restService.getTokenEu()
-            .map {
-                it.transformToDomain()
-            }
+                .map {
+                    it.transformToDomain()
+                }
     }
 
     override fun getTokenUs(): Observable<Token> {
@@ -20,5 +23,4 @@ class TokenRepositoryImpl(private val restService: RestServiceToken) : TokenRepo
                     it.transformToDomain()
                 }
     }
-
 }

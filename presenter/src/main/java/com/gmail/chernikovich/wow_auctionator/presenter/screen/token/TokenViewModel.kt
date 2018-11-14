@@ -9,7 +9,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import java.text.DateFormat
 
 class TokenViewModel : BaseViewModel<TokenRouter>() {
-    private lateinit var token: TokenUseCase
+    private var token: TokenUseCase
     val gold = ObservableField<String>()
     val lastUpdate = ObservableField<String>()
     val isProgress = ObservableBoolean(true)
@@ -21,7 +21,7 @@ class TokenViewModel : BaseViewModel<TokenRouter>() {
 
     fun showEuToken(){
         isProgress.set(true)
-        token = UseCaseProvide.provideGetTokenEuUseCase()
+        token = UseCaseProvide.provideGetTokenUsUseCase()
         show()
     }
 

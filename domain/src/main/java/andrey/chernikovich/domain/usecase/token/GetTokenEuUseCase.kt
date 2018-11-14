@@ -8,7 +8,6 @@ import io.reactivex.Observable
 
 class GetTokenEuUseCase(postExecutorThread: PostExecutorThread,
                         private val tokenRepository: TokenRepository) : BaseUseCase(postExecutorThread), TokenUseCase {
-
     override fun getToken(): Observable<Token> {
         return tokenRepository.getTokenEu()
                 .observeOn(postExecutorThread)
