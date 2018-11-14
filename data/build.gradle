@@ -33,9 +33,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.github.humazed:RoomAsset:v1.0'
-    implementation 'com.github.daolq3012:AssetSQLiteOpenHelper:V1.0.1'
-
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 

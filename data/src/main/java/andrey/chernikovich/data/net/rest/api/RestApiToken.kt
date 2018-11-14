@@ -4,7 +4,7 @@ import andrey.chernikovich.data.net.entity.TokenResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 
-interface RestApiToken : BaseRestApi {
+interface RestApiToken {
     //  https://eu.api.battle.net/data/wow/token/?namespace=dynamic-eu&locale=en_GB&access_token=tcnryg8fyvwqngza5m4b4xyc
     @GET("/data/wow/token/?namespace=dynamic-eu&locale=en_GB&access_token=tcnryg8fyvwqngza5m4b4xyc")
     fun getTokenEu(): Observable<TokenResponse>

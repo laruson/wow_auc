@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface RestApiRealm : BaseRestApi {
+interface RestApiRealm {
 
     @GET("data/wow/realm/?namespace=dynamic-eu&locale=en_GB&access_token=dx8pryjeuxpvkz48c2c2agzw")
     fun getRealmEu(): Flowable<List<RealmResponse>>
