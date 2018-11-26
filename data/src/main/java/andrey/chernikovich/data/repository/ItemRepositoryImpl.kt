@@ -9,14 +9,13 @@ import andrey.chernikovich.domain.entity.BaseItem
 import andrey.chernikovich.domain.entity.Item
 import andrey.chernikovich.domain.entity.ItemSearch
 import andrey.chernikovich.domain.repository.ItemRepository
-import android.util.Log
 import io.reactivex.Flowable
 import io.reactivex.Observable
 
 class ItemRepositoryImpl(private val restService: RestServiceItem,
                          private val itemDao: ItemDao) : ItemRepository {
 
-    override fun getItemById(id: Int): Observable<Item> {
+    override fun getItemById(id: String): Observable<Item> {
         return restService.getItemById(id).map { ItemResponse ->
             ItemResponse.transformToDomain()
         }

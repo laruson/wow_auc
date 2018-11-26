@@ -3,6 +3,7 @@ package andrey.chernikovich.data.net.rest.service.base
 import andrey.chernikovich.data.net.rest.api.RestApiItem
 import andrey.chernikovich.data.net.rest.api.RestApiRealm
 import andrey.chernikovich.data.net.rest.api.RestApiToken
+import android.util.Log
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

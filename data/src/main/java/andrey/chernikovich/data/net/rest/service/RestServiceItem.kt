@@ -6,7 +6,7 @@ import io.reactivex.Observable
 
 class RestServiceItem(apiUrl: String) : BaseRestService(apiUrl) {
 
-    fun getItemById(id:Int):Observable<ItemResponse>{
+    fun getItemById(id:String):Observable<ItemResponse>{
         return restApiItem.getItemById(id)
     }
 }

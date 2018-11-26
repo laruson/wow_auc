@@ -3,8 +3,8 @@ package andrey.chernikovich.data.db.entity
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
-@Entity(tableName = "items")
-data class ItemDB(
+@Entity(tableName = "groupItems")
+data class GroupItemDb(
         @PrimaryKey
         val id: String,
         val name: String,

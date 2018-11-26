@@ -7,5 +7,14 @@
     <string name="eu_region">Eu region</string>
     <string name="choise_group_items">choise group items</string>
     <string name="search_item">search item</string>
+    <string name="quantity">Quantity</string>
+    <string name="marketValue">Market Value</string>
+    <string name="minimumBuyout">Minimum Buyout</string>
+    <string name="minimum_buyout">Minimum Buyout</string>
+    <string name="market_value">Market Value</string>
+    <string name="historical_price">Historical Price</string>
+    <string name="saveInMyGroup">Save in My Group</string>
+    <string name="stat_name">Stat Name</string>
+    <string name="delete">Delete</string>
 
 </resources>

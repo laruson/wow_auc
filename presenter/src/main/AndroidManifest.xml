@@ -16,10 +16,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".presenter.screen.group.create.CreateGroupActivity" />
-        <activity android:name=".presenter.screen.group.find.FindGroupActivity" />
         <activity android:name=".presenter.screen.item.ItemActivity" />
-        <activity android:name=".presenter.screen.token.TokenActivity" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="0de0c5375a5ce9094c99ee086dbab9887f9145bc" />

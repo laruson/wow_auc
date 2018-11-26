@@ -1,8 +1,10 @@
 package com.gmail.chernikovich.wow_auctionator.presenter.base
 
 import android.app.Activity
+import android.content.Intent
 import android.support.v4.app.FragmentManager
 import android.widget.Toast
+import com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.AuctionActivity
 
 abstract class BaseRouter<A : Activity>(val activity: A) {
     fun showError(e: Throwable) {
@@ -25,5 +27,10 @@ abstract class BaseRouter<A : Activity>(val activity: A) {
         }
 
         fragmentTransient.commit()
+    }
+
+    fun goToMainMenu(){
+        activity.startActivity(Intent(activity, AuctionActivity::class.java))
+        activity.finish()
     }
 }

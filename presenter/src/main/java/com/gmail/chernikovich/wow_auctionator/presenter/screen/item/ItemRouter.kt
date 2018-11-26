@@ -1,24 +1,16 @@
 package com.gmail.chernikovich.wow_auctionator.presenter.screen.item
 
-import com.gmail.chernikovich.wow_auctionator.R
+import android.content.Intent
 import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseRouter
-import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.find.FindItemFragment
-import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.info.InfoItemFragment
+import com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.AuctionActivity
 
 class ItemRouter(activity: ItemActivity) : BaseRouter<ItemActivity>(activity) {
-    fun gotoItemInfo(id: Int) {
-        replaceFragment(FindItemFragment.getInstance(),
-                activity.supportFragmentManager,
-                InfoItemFragment.getInstance(id),
-                R.id.conteiner_find_item,
-                true)
-    }
+    val ID_EXTRA = "ID_EXTRA"
+    val IMG_EXTRA = "IMG_EXTRA"
 
-    fun goToFindItem(){
-        replaceFragment(FindItemFragment.getInstance(),
-                activity.supportFragmentManager,
-                FindItemFragment.getInstance(),
-                R.id.conteiner_find_item,
-                true)
+    fun goToAuction() {
+        val intent = Intent(activity, AuctionActivity::class.java)
+        activity.startActivity(intent)
+        activity.finish()
     }
 }

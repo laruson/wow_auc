@@ -2,16 +2,15 @@ package andrey.chernikovich.data.db.dao
 
 import andrey.chernikovich.data.db.entity.ItemDB
 import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import io.reactivex.Completable
 import io.reactivex.Flowable
-import io.reactivex.Observable
 
 @Dao
 interface ItemDao {
-    @Insert
-    fun insert(vararg item: ItemDB)
+    @Query("SELECT * FROM items")
+    fun getSaveItems(): Flowable<List<ItemDB>>
 
     @Insert
     fun insert(items: List<ItemDB>)

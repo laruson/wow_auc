@@ -7,13 +7,14 @@ import android.view.View
 import com.gmail.chernikovich.wow_auctionator.R
 import com.gmail.chernikovich.wow_auctionator.databinding.FragmentFindItemBinding
 import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseMvvmFragment
+import com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.AuctionRouter
 import com.gmail.chernikovich.wow_auctionator.presenter.screen.item.ItemRouter
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.rxkotlin.subscribeBy
 
 class FindItemFragment : BaseMvvmFragment<
         FindItemViewModel,
-        ItemRouter,
+        AuctionRouter,
         FragmentFindItemBinding>() {
 
     companion object {

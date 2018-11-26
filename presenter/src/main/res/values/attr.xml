@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="setText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="GoldView">
+        <attr name="setGold" format="string" />
+        <attr name="setSilver" format="string" />
+        <attr name="setCopper" format="string" />
+    </declare-styleable>
+</resources>

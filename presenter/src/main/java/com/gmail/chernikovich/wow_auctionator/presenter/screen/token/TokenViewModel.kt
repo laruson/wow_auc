@@ -5,10 +5,11 @@ import android.databinding.*
 import android.util.Log
 import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
 import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseViewModel
+import com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.AuctionRouter
 import io.reactivex.rxkotlin.subscribeBy
 import java.text.DateFormat
 
-class TokenViewModel : BaseViewModel<TokenRouter>() {
+class TokenViewModel : BaseViewModel<AuctionRouter>() {
     private lateinit var token: TokenUseCase
     val gold = ObservableField<String>()
     val lastUpdate = ObservableField<String>()

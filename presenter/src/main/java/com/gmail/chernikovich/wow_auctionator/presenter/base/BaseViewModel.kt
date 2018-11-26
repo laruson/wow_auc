@@ -1,5 +1,6 @@
 package com.gmail.chernikovich.wow_auctionator.presenter.base
 
+import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

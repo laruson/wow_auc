@@ -5,6 +5,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import android.databinding.BindingAdapter
+
 
 fun setImage(url: String, image: ImageView, progressItem: ProgressBar) {
     Picasso.get()
@@ -18,4 +20,11 @@ fun setImage(url: String, image: ImageView, progressItem: ProgressBar) {
                 override fun onError(e: Exception) {
                 }
             })
+}
+
+@BindingAdapter("bind:imageUrl")
+fun loadImage(view: ImageView, imageUrl: String) {
+    Picasso.get()
+            .load(imageUrl)
+            .into(view)
 }

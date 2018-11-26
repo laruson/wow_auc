@@ -6,9 +6,9 @@ import andrey.chernikovich.domain.repository.ItemRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Observable
 
-class GetItemByIdUseCase(postExecutorThread: PostExecutorThread,
+    class GetItemByIdUseCase(postExecutorThread: PostExecutorThread,
                          private val itemRepository: ItemRepository) : BaseUseCase(postExecutorThread), ItemUseCase {
-    fun getItemById(id: Int): Observable<Item> {
+    fun getItemById(id: String): Observable<Item> {
         return itemRepository.getItemById(id)
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)

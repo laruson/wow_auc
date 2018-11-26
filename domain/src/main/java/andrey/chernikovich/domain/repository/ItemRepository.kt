@@ -15,6 +15,5 @@ interface ItemRepository : BaseRepository {
 
     fun search(search: ItemSearch): Flowable<List<BaseItem>>
 
-    fun getItemById(id:Int):Observable<Item>
-
+    fun getItemById(id:String):Observable<Item>
 }

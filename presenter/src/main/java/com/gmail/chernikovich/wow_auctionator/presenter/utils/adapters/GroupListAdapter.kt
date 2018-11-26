@@ -9,36 +9,48 @@ import com.gmail.chernikovich.wow_auctionator.R
 import com.gmail.chernikovich.wow_auctionator.presenter.utils.picasso.setImage
 import kotlinx.android.synthetic.main.item_item.view.*
 
-class ItemsListAdapter() : RecyclerView.Adapter<ItemsListAdapter.Holder>() {
+class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.Holder>() {
+
     private var items: List<BaseItem> = emptyList()
     private lateinit var onItemClick : (BaseItem) -> Unit
+    private lateinit var onLongItemClick :  (BaseItem) -> Unit
 
     fun setItems(items: List<BaseItem>) {
         this.items = items
         notifyDataSetChanged()
     }
 
+    fun setLongClicker(onLongItemClick:  (BaseItem) -> Unit){
+        this.onLongItemClick = onLongItemClick
+    }
+
     fun setClicker(onItemClick: (BaseItem) -> Unit){
         this.onItemClick=onItemClick
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupListAdapter.Holder {
         val view = LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.item_item, parent, false)
+                .inflate(R.layout.item_my_group_item, parent, false)
         return Holder(view)
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
+    override fun getItemCount(): Int =items.size
+
+    override fun onBindViewHolder(holder: GroupListAdapter.Holder, position: Int) {
         val item = items[position]
 
         holder.bind(item)
         holder.itemView.setOnClickListener {
             onItemClick(item)
         }
-    }
 
-    override fun getItemCount(): Int = items.size
+        holder.itemView.isLongClickable=true
+        holder.itemView.setOnLongClickListener {
+            onItemClick(item)
+            true
+        }
+    }
 
 
     inner class Holder(view: View) : RecyclerView.ViewHolder(view) {
