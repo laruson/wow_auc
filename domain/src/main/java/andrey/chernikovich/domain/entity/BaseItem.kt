@@ -2,5 +2,9 @@ package andrey.chernikovich.domain.entity
 
 data class BaseItem(val id:String,
                     val name:String,
-                    val image:String) : DomainEntity {
-}
+                    val image:String,
+                    val itemClass:String="",
+                    val itemSubClass:String="",
+                    val itemLevel:String="",
+                    val quality:String="",
+                    val requiredLevel:String="") : DomainEntity

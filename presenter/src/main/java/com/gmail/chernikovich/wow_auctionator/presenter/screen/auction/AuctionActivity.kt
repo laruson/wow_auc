@@ -1,14 +1,14 @@
 package com.gmail.chernikovich.wow_auctionator.presenter.screen.auction
 
+import andrey.chernikovich.data.db.assets.loadItems
+import andrey.chernikovich.data.sharedpref.IS_FIRST_RUN
 import android.arch.lifecycle.ViewModelProviders
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.view.ViewPager
 import com.gmail.chernikovich.wow_auctionator.R
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.databinding.ActivityAuctionMainBinding
 import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseMvvmActivity
-import com.gmail.chernikovich.wow_auctionator.presenter.utils.adapters.FragmentViewPagerAdapter
+import com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.adapter.FragmentViewPagerAdapter
 
 class AuctionActivity : BaseMvvmActivity<
         AuctionViewModel,
@@ -28,6 +28,9 @@ class AuctionActivity : BaseMvvmActivity<
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if(!isFirstRun()){
+
+        }
         val tab = binding.tab
         val viewPager = binding.viewPager
         val adapter = FragmentViewPagerAdapter(supportFragmentManager)
@@ -35,5 +38,17 @@ class AuctionActivity : BaseMvvmActivity<
         viewPager.adapter = adapter
         tab.setupWithViewPager(viewPager)
 
+
+    }
+
+
+    private fun isFirstRun() : Boolean{
+        val isFirst = App.sharedPref.getBoolean(IS_FIRST_RUN, false)
+        if(!isFirst){
+            loadItems(this)
+            router.goToFirstScreen()
+            App.sharedPref.edit().putBoolean(IS_FIRST_RUN,true).apply()
+        }
+        return isFirst
     }
 }

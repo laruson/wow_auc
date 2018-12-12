@@ -5,4 +5,5 @@ import com.gmail.chernikovich.wow_auctionator.presenter.base.BaseViewModel
 class AuctionViewModel : BaseViewModel<AuctionRouter>() {
 
 
+
 }

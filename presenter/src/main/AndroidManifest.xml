@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gmail.chernikovich.wow_auctionator">
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:name=".app.App"
@@ -17,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presenter.screen.item.ItemActivity" />
+        <activity android:name=".presenter.screen.settings.SettingsActivity"/>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="0de0c5375a5ce9094c99ee086dbab9887f9145bc" />

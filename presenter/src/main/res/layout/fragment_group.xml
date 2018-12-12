@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.gmail.chernikovich.wow_auctionator.presenter.screen.group.GroupViewModel" />
+            type="com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.group.GroupViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout

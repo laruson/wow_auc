@@ -1,8 +1,9 @@
 package andrey.chernikovich.data.repository
 
+import andrey.chernikovich.data.db.assets.items
 import andrey.chernikovich.data.db.dao.ItemDao
 import andrey.chernikovich.data.db.entity.mapper.transformToBaseItem
-import andrey.chernikovich.data.db.utils.items
+import andrey.chernikovich.data.db.entity.mapper.transformToItemDb
 import andrey.chernikovich.data.net.entity.mapper.transformToDomain
 import andrey.chernikovich.data.net.rest.service.RestServiceItem
 import andrey.chernikovich.domain.entity.BaseItem
@@ -15,6 +16,12 @@ import io.reactivex.Observable
 class ItemRepositoryImpl(private val restService: RestServiceItem,
                          private val itemDao: ItemDao) : ItemRepository {
 
+    override fun saveItems(items: List<BaseItem>) {
+        itemDao.insert(items.map {
+            it.transformToItemDb()
+        })
+    }
+
     override fun getItemById(id: String): Observable<Item> {
         return restService.getItemById(id).map { ItemResponse ->
             ItemResponse.transformToDomain()
@@ -23,7 +30,7 @@ class ItemRepositoryImpl(private val restService: RestServiceItem,
 
     override fun getItems(): Flowable<List<BaseItem>> {
         return itemDao.getItems().map { list ->
-            if (list.isEmpty()) {
+            if(list.isEmpty()){
                 itemDao.insert(items)
             }
             list.map { itemDB ->
@@ -49,5 +56,4 @@ class ItemRepositoryImpl(private val restService: RestServiceItem,
             }
         }
     }
-
 }

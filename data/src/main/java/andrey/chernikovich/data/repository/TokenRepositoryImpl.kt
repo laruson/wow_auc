@@ -1,24 +1,20 @@
 package andrey.chernikovich.data.repository
 
-import andrey.chernikovich.data.db.dao.ItemDao
 import andrey.chernikovich.data.net.entity.mapper.transformToDomain
 import andrey.chernikovich.data.net.rest.service.RestServiceToken
 import andrey.chernikovich.domain.entity.Token
 import andrey.chernikovich.domain.repository.TokenRepository
-import android.util.Log
+import andrey.chernikovich.domain.sharedpref.SharedPref
 import io.reactivex.Observable
 
-class TokenRepositoryImpl(private val restService: RestServiceToken) : TokenRepository {
+class TokenRepositoryImpl(private val restService: RestServiceToken,
+                          private val shadow: SharedPref) : TokenRepository {
 
-    override fun getTokenEu(): Observable<Token> {
-        return restService.getTokenEu()
-                .map {
-                    it.transformToDomain()
-                }
-    }
-
-    override fun getTokenUs(): Observable<Token> {
-        return restService.getTokenUs()
+    override fun getToken(): Observable<Token> {
+        return restService
+                .getToken(shadow.getNameSpace()!!,
+                        shadow.getLocale()!!,
+                        shadow.getAccessToken()!!)
                 .map {
                     it.transformToDomain()
                 }

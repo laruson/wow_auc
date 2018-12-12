@@ -8,4 +8,9 @@ data class GroupItemDb(
         @PrimaryKey
         val id: String,
         val name: String,
-        val icon: String =""):DbEntity
+        val icon: String,
+        val itemClass: String,
+        val itemSubClass: String,
+        val itemLevel: String,
+        val quality: String,
+        val requiredLevel: String):DbEntity

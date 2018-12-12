@@ -7,16 +7,10 @@ import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Flowable
 
 class GetRealmsUseCase(postExecutorThread: PostExecutorThread,
-                       private val realmRepository: RealmRepository) : BaseUseCase(postExecutorThread), RealmUseCase {
-
-    fun getRealmsEu(slug: String): Flowable<List<Realm>> {
-        return realmRepository.getRealmsEu()
-                .observeOn(postExecutorThread)
-                .subscribeOn(workExecutorThread)
-    }
-
-    fun getRealmsUs(slug: String): Flowable<List<Realm>> {
-        return realmRepository.getRealmsUs()
+                       private val realmRepository: RealmRepository)
+    : BaseUseCase(postExecutorThread), RealmUseCase {
+    override fun getRealms(): Flowable<List<Realm>> {
+        return realmRepository.getRealms()
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)
     }

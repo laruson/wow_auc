@@ -24,4 +24,9 @@ class ItemActivity : BaseMvvmActivity<ItemViewModel, ItemRouter, ActivityItemInf
         val img = intent.getStringExtra(router.IMG_EXTRA)
         viewModel.setInfoItem(id, img)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        router.goToAuction()
+    }
 }

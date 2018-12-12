@@ -98,7 +98,7 @@ class ItemViewModel : BaseViewModel<ItemRouter>() {
     }
 
     fun addItem(view: View){
-        saveItem.saveItem(item)
+        saveItem.saveGroupItem(item)
         router?.goToAuction()
     }
 }

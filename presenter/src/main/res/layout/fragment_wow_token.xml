@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.gmail.chernikovich.wow_auctionator.presenter.screen.token.TokenViewModel" />
+            type="com.gmail.chernikovich.wow_auctionator.presenter.screen.auction.token.TokenViewModel" />
     </data>
 
     <LinearLayout

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Wow_auctionator</string>
-    <string name="select_realm">select realm from the list</string>
+    <string name="select_realm">select realm</string>
     <string name="choise_region">choise region</string>
-    <string name="region">region</string>
+    <string name="region">Region</string>
     <string name="us_region">Us region</string>
     <string name="eu_region">Eu region</string>
     <string name="choise_group_items">choise group items</string>
@@ -16,5 +16,9 @@
     <string name="saveInMyGroup">Save in My Group</string>
     <string name="stat_name">Stat Name</string>
     <string name="delete">Delete</string>
+    <string name="language">Language</string>
+    <string name="select_region">select region</string>
+    <string name="realm">Realm</string>
+    <string name="ready">Ready</string>
 
 </resources>

@@ -9,6 +9,8 @@ import io.reactivex.Observable
 
 interface ItemRepository : BaseRepository {
 
+    fun saveItems(items: List<BaseItem>)
+
     fun getItems(): Flowable<List<BaseItem>>
 
     fun getItems(count:Int): Flowable<List<BaseItem>>

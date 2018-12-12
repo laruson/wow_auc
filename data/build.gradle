@@ -23,7 +23,7 @@ android {
 
 dependencies {
     def retrofitVersion= "2.4.0"
-    def okHttpVersion="3.11.0"
+    def okHttpVersion="3.10.0"
     def room_version = "1.1.1"
     def archComponentVersion = "1.1.1"
 

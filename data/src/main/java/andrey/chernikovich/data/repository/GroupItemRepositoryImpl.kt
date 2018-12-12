@@ -7,6 +7,11 @@ import andrey.chernikovich.domain.repository.GroupItemRepository
 import io.reactivex.Flowable
 
 class GroupItemRepositoryImpl(private val itemDao: GroupItemDao) : GroupItemRepository {
+
+    override fun deleteItem(item: BaseItem) {
+        itemDao.deleteItem(item.transformToGroupItemDb())
+    }
+
     override fun saveItem(item: BaseItem) {
         itemDao.save(item.transformToGroupItemDb())
     }

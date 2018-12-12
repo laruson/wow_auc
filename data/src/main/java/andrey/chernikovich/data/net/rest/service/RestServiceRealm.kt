@@ -1,24 +1,16 @@
 package andrey.chernikovich.data.net.rest.service
 
 import andrey.chernikovich.data.net.entity.RealmResponse
+import andrey.chernikovich.data.net.entity.RealmsResponse
 import andrey.chernikovich.data.net.rest.service.base.BaseRestService
 import io.reactivex.Flowable
-import io.reactivex.Observable
 
-class RestServiceRealm(apiUrl: String) : BaseRestService(apiUrl)  {
-    fun getRealmEu(): Flowable<List<RealmResponse>> {
-        return restApiRealm.getRealmEu()
+class RestServiceRealm(apiUrl: String) : BaseRestService(apiUrl) {
+    fun getRealm(namespace: String,
+                 locale: String,
+                 access_token: String): Flowable<RealmsResponse> {
+        return restApiRealm.getRealm(namespace, locale, access_token)
     }
 
-    fun getRealmEu(slug:String): Observable<RealmResponse> {
-        return restApiRealm.getRealmEu(slug)
-    }
 
-    fun getRealmUs(): Flowable<List<RealmResponse>> {
-        return restApiRealm.getRealmUs()
-    }
-
-    fun getRealmUs(slug:String): Observable<RealmResponse>{
-        return restApiRealm.getRealmUs(slug)
-    }
 }
