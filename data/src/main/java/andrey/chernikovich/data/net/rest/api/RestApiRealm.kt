@@ -1,7 +1,6 @@
 package andrey.chernikovich.data.net.rest.api
 
-import andrey.chernikovich.data.net.entity.RealmResponse
-import andrey.chernikovich.data.net.entity.RealmsResponse
+import andrey.chernikovich.data.net.entity.realm.RealmsResponse
 import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Query

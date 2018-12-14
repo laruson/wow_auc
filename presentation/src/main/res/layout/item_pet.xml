@@ -1,0 +1,114 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.pet.adapter.PetItemViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#71545454"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/imagePet"
+            android:src="@{viewModel.icon}"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewNamePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{viewModel.name}"
+            android:textColor="@{viewModel.textColor}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewFamily"
+            app:layout_constraintStart_toEndOf="@+id/imageViewFamily"
+            app:layout_constraintTop_toTopOf="@+id/imageViewFamily" />
+
+        <ImageView
+            android:id="@+id/imageViewFamily"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:srcFamily="@{viewModel.family}"
+            app:layout_constraintStart_toEndOf="@+id/imagePet"
+            app:layout_constraintTop_toTopOf="@+id/imagePet" />
+
+        <ImageView
+            android:id="@+id/imageViewHealth"
+            android:src="@{viewModel.healthImage}"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="@+id/imagePet"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewFamily" />
+
+        <ImageView
+            android:id="@+id/imageViewPower"
+            android:src="@{viewModel.powerImage}"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHealth"
+            app:layout_constraintStart_toEndOf="@+id/imageViewHealth"
+            app:layout_constraintTop_toTopOf="@+id/imageViewHealth" />
+
+        <ImageView
+            android:id="@+id/imageViewSpeed"
+            android:src="@{viewModel.speedImage}"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewPower"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPower"
+            app:layout_constraintTop_toTopOf="@+id/textViewPower" />
+
+        <TextView
+            android:id="@+id/textViewHealth"
+            android:text="@{viewModel.healthText}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHealth"
+            app:layout_constraintStart_toEndOf="@+id/imageViewHealth"
+            app:layout_constraintTop_toTopOf="@+id/imageViewHealth" />
+
+        <TextView
+            android:id="@+id/textViewPower"
+            android:text="@{viewModel.powerText}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPower"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPower"
+            app:layout_constraintTop_toTopOf="@+id/imageViewPower" />
+
+        <TextView
+            android:id="@+id/textViewSpeed"
+            android:text="@{viewModel.speedText}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewSpeed"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSpeed"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSpeed" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

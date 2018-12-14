@@ -9,8 +9,8 @@ data class ItemDB(
         val id: String,
         val name: String,
         val icon: String,
-        val itemClass: String="",
-        val itemSubClass: String="",
-        val itemLevel: String="",
-        val quality: String="",
-        val requiredLevel: String="") : DbEntity
+        val itemClass: String,
+        val itemSubClass: String,
+        val itemLevel: String,
+        val quality: String,
+        val requiredLevel: String) : DbEntity

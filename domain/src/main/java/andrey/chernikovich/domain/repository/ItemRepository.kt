@@ -1,9 +1,8 @@
 package andrey.chernikovich.domain.repository
 
-import andrey.chernikovich.domain.entity.BaseItem
-import andrey.chernikovich.domain.entity.Item
-import andrey.chernikovich.domain.entity.ItemSearch
-import io.reactivex.Completable
+import andrey.chernikovich.domain.entity.item.BaseItem
+import andrey.chernikovich.domain.entity.item.Item
+import andrey.chernikovich.domain.entity.item.ItemSearch
 import io.reactivex.Flowable
 import io.reactivex.Observable
 

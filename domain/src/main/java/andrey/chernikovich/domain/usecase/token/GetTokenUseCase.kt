@@ -1,6 +1,6 @@
 package andrey.chernikovich.domain.usecase.token
 
-import andrey.chernikovich.domain.entity.Token
+import andrey.chernikovich.domain.entity.token.Token
 import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.TokenRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase

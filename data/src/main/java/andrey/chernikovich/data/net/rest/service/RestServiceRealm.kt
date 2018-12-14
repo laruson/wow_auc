@@ -1,7 +1,6 @@
 package andrey.chernikovich.data.net.rest.service
 
-import andrey.chernikovich.data.net.entity.RealmResponse
-import andrey.chernikovich.data.net.entity.RealmsResponse
+import andrey.chernikovich.data.net.entity.realm.RealmsResponse
 import andrey.chernikovich.data.net.rest.service.base.BaseRestService
 import io.reactivex.Flowable
 

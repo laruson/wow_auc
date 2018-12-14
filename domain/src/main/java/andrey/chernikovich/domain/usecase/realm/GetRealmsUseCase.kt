@@ -1,6 +1,6 @@
 package andrey.chernikovich.domain.usecase.realm
 
-import andrey.chernikovich.domain.entity.Realm
+import andrey.chernikovich.domain.entity.realm.Realm
 import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.RealmRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase

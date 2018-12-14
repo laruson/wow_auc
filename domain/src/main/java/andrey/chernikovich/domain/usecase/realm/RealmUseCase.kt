@@ -1,6 +1,6 @@
 package andrey.chernikovich.domain.usecase.realm
 
-import andrey.chernikovich.domain.entity.Realm
+import andrey.chernikovich.domain.entity.realm.Realm
 import io.reactivex.Flowable
 
 interface RealmUseCase {

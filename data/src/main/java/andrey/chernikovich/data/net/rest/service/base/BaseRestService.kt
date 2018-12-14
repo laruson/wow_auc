@@ -1,6 +1,7 @@
 package andrey.chernikovich.data.net.rest.service.base
 
 import andrey.chernikovich.data.net.rest.api.RestApiItem
+import andrey.chernikovich.data.net.rest.api.RestApiPet
 import andrey.chernikovich.data.net.rest.api.RestApiRealm
 import andrey.chernikovich.data.net.rest.api.RestApiToken
 import android.util.Log
@@ -16,6 +17,7 @@ abstract class BaseRestService(apiUrl: String) : BaseService {
     protected val restApiItem: RestApiItem
     protected val restApiRealm: RestApiRealm
     protected val restApiToken: RestApiToken
+    protected val restApiPet:RestApiPet
     init {
         val okHttpBuilder = OkHttpClient.Builder()
                 .readTimeout(30, TimeUnit.SECONDS)
@@ -38,5 +40,6 @@ abstract class BaseRestService(apiUrl: String) : BaseService {
         restApiItem = retrofit.create(RestApiItem::class.java)
         restApiRealm = retrofit.create(RestApiRealm::class.java)
         restApiToken = retrofit.create(RestApiToken::class.java)
+        restApiPet = retrofit.create(RestApiPet::class.java)
     }
 }

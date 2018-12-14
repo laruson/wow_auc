@@ -1,6 +1,6 @@
 package andrey.chernikovich.domain.usecase.item
 
-import andrey.chernikovich.domain.entity.BaseItem
+import andrey.chernikovich.domain.entity.item.BaseItem
 import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.ItemRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
@@ -9,7 +9,7 @@ import io.reactivex.Flowable
 class GetItemsUseCase(postExecutorThread: PostExecutorThread,
                       private val itemRepository: ItemRepository) : BaseUseCase(postExecutorThread), ItemUseCase {
     fun getItems(): Flowable<List<BaseItem>> {
-        return itemRepository.getItems()
+        return itemRepository.getItems().take(1)
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)
     }

@@ -24,7 +24,7 @@ fun loadItems(context: Context) : Boolean {
 
     ioThread {
         val gson = Gson()
-        val reader = BufferedReader(InputStreamReader(context.assets.open("items.txt")))
+        val reader = BufferedReader(InputStreamReader(context.assets.open("items")))
         var line = reader.readLine()
 
         while (line != null) {

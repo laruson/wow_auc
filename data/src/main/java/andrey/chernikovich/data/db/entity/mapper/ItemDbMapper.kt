@@ -2,8 +2,8 @@ package andrey.chernikovich.data.db.entity.mapper
 
 import andrey.chernikovich.data.db.entity.GroupItemDb
 import andrey.chernikovich.data.db.entity.ItemDB
-import andrey.chernikovich.domain.entity.BaseItem
-import andrey.chernikovich.domain.entity.Item
+import andrey.chernikovich.domain.entity.item.BaseItem
+import android.util.Log
 
 fun ItemDB.transformToBaseItem(): BaseItem {
     return BaseItem(

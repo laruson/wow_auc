@@ -1,6 +1,6 @@
 package andrey.chernikovich.data.net.rest.api
 
-import andrey.chernikovich.data.net.entity.ItemResponse
+import andrey.chernikovich.data.net.entity.item.ItemResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Headers
