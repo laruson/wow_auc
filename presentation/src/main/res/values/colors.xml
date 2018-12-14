@@ -10,5 +10,8 @@
     <color name="rare">#ff0070dd</color>
     <color name="epic">#ffa335ee</color>
     <color name="legendary">#ffff8000</color>
+    <color name="bacground_item">#719e9b9b</color>
+
+    <color name="black">#000000</color>
 
 </resources>

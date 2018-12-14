@@ -14,22 +14,22 @@ class GroupViewModel : BaseViewModel<AuctionRouter>() {
     val adapter = GroupItemAdapter()
 
     init {
-        adapter.clickItemSubject.subscribeBy(
+        addToDisposable(adapter.clickItemSubject.subscribeBy(
                 onNext = {
                     router?.goToItemInfo(it.item.id, it.item.image)
                 },
                 onError = {
                     router?.showError(it)
                 }
-        )
+        ))
 
-        getItems.getGroupItems().subscribeBy(
+        addToDisposable(getItems.getGroupItems().subscribeBy(
                 onNext = {
                     adapter.addItems(it)
                 },
                 onError = {
                     router?.showError(it)
                 }
-        )
+        ))
     }
 }

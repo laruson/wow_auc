@@ -40,12 +40,11 @@ class AuctionActivity : BaseMvvmActivity<
     }
 
 
-    private fun isFirstRun(){
-        val isFirst = App.sharedPref.getBoolean(IS_FIRST_RUN, false)
-        if(!isFirst){
-            loadItems(this)
+    private fun isFirstRun() {
+        if (!App.sharedPref.getBoolean(IS_FIRST_RUN, false)) {
+            loadItems(this, App.sharedPref)
             router.goToFirstScreen()
-            App.sharedPref.edit().putBoolean(IS_FIRST_RUN,true).apply()
+            App.sharedPref.edit().putBoolean(IS_FIRST_RUN, true).apply()
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.base.recycler
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import io.reactivex.subjects.PublishSubject
 
 abstract class BaseRecyclerAdapter<
@@ -35,6 +36,12 @@ abstract class BaseRecyclerAdapter<
         val startPos = itemList.size
         itemList.addAll(items)
         notifyItemRangeChanged(startPos, items.size)
+    }
+
+    fun setItems(items: List<Entity>){
+        cleanItems()
+        itemList.addAll(items)
+        notifyDataSetChanged()
     }
 
     fun cleanItems() {

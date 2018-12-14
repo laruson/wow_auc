@@ -15,7 +15,7 @@ class GetItemsUseCase(postExecutorThread: PostExecutorThread,
     }
 
     fun getItems(count:Int): Flowable<List<BaseItem>> {
-        return itemRepository.getItems(count)
+        return itemRepository.getItems(count).take(1)
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)
     }

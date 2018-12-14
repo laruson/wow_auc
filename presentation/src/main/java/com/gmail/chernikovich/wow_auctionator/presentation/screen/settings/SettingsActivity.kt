@@ -1,6 +1,8 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.settings
 
+import andrey.chernikovich.data.sharedpref.IS_LOAD_COMPLITE
 import andrey.chernikovich.data.sharedpref.NAMESPACE
+import andrey.chernikovich.data.sharedpref.REALM
 import andrey.chernikovich.data.sharedpref.REGION
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -36,7 +38,6 @@ class SettingsActivity : BaseMvvmActivity<
         readyRegionButton.setOnClickListener {
             val text = regionEditText.text.toString()
             if (text == "eu" || text == "us") {
-                Log.e("AA", text)
                 App.sharedPref.edit().putString(REGION, text).apply()
                 App.sharedPref.edit().putString(NAMESPACE, "dynamic-$text").apply()
                 realmAutoComp.setAdapter(viewModel.adapter)
@@ -49,11 +50,17 @@ class SettingsActivity : BaseMvvmActivity<
         }
 
         readyButton.setOnClickListener {
-            router.goToAuction()
+            val text = realmAutoComp.text.toString()
+            App.sharedPref.edit().putString(REALM, text).apply()
+            val load = App.sharedPref.getBoolean(IS_LOAD_COMPLITE, false)
+            Log.e("AA", load.toString())
+            if (!load) {
+                router.goToLoadingScreen()
+            } else
+                router.goToAuction()
         }
 
     }
-
 
 
 }

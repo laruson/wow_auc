@@ -22,3 +22,15 @@ fun textColor(view: TextView, value: Int) {
         5 -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.legendary))
     }
 }
+
+@BindingAdapter("android:textColor")
+fun textColor(view: TextView, value: String) {
+    when (value) {
+        "0" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.poor))
+        "1" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.common))
+        "2" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.uncommon))
+        "3" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.rare))
+        "4" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.epic))
+        "5" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.legendary))
+    }
+}

@@ -25,7 +25,7 @@ interface ItemDao {
     @Query("SELECT * FROM loadItems LIMIT :count")
     fun getItems(count: Int): Flowable<List<ItemDB>>
 
-    @Query("SELECT * FROM loadItems WHERE name LIKE :search || '%' LIMIT 100")
+    @Query("SELECT * FROM loadItems WHERE name LIKE  '%' || :search || '%' LIMIT 100")
     fun searchItem(search: String): Flowable<List<ItemDB>>
 
     @Query("DELETE FROM loadItems")

@@ -36,7 +36,6 @@ abstract class BaseRestService(apiUrl: String) : BaseService {
                 .client(okHttpBuilder.build())
                 .build()
 
-        Log.e("AA", apiUrl)
         restApiItem = retrofit.create(RestApiItem::class.java)
         restApiRealm = retrofit.create(RestApiRealm::class.java)
         restApiToken = retrofit.create(RestApiToken::class.java)

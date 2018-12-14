@@ -28,11 +28,10 @@ class PetRepositoryImpl(private val restService: RestServisePet,
                                     val list = it.pets.map {
                                         it.transformToPetDb()
                                     }
-                                    Log.e("PetRepositoryImpl", list.toString())
                                     dao.insert(list)
                                 },
                                 onError = {
-                                    Log.e("PetRepositoryImpl", it.toString())
+
                                 }
                         )
             }

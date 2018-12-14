@@ -1,12 +1,15 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.item
 
+import andrey.chernikovich.data.sharedpref.REALM
 import andrey.chernikovich.domain.entity.item.BaseItem
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.util.Log
 import android.view.View
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.transform
 import io.reactivex.rxkotlin.subscribeBy
 
@@ -15,42 +18,27 @@ class ItemViewModel : BaseViewModel<ItemRouter>() {
     private val saveItem = UseCaseProvide.provideSaveItemUseCase()
     private lateinit var item: BaseItem
 
-    val img = ObservableField<String>("empty")
-    val serverName = ObservableField<String>("")
-    val regionName = ObservableField<String>("")
-    val itemName = ObservableField<String>("")
+    val img = ObservableField<String>(EMPTY)
+    val serverName = ObservableField<String>(EMPTY)
+    val itemName = ObservableField<String>(EMPTY)
 
-    val minBuyoutServerGold = ObservableField<String>("")
-    val minBuyoutServerSilver = ObservableField<String>("")
-    val minBuyoutServerCopper = ObservableField<String>("")
+    val minBuyoutServerGold = ObservableField<String>(EMPTY)
+    val minBuyoutServerSilver = ObservableField<String>(EMPTY)
+    val minBuyoutServerCopper = ObservableField<String>(EMPTY)
 
-    val minBuyoutRegionGold = ObservableField<String>("")
-    val minBuyoutRegionSilver = ObservableField<String>("")
-    val minBuyoutRegionCopper = ObservableField<String>("")
+    val marketValueServerGold = ObservableField<String>(EMPTY)
+    val marketValueServerSilver = ObservableField<String>(EMPTY)
+    val marketValueServerCopper = ObservableField<String>(EMPTY)
 
-    val marketValueServerGold = ObservableField<String>("")
-    val marketValueServerSilver = ObservableField<String>("")
-    val marketValueServerCopper = ObservableField<String>("")
-
-    val marketValueRegionGold = ObservableField<String>("")
-    val marketValueRegionSilver = ObservableField<String>("")
-    val marketValueRegionCopper = ObservableField<String>("")
-
-    val historicalPriceServerGold = ObservableField<String>("")
-    val historicalPriceServerSilver = ObservableField<String>("")
-    val historicalPriceServerCopper = ObservableField<String>("")
-
-    val historicalPriceRegionGold = ObservableField<String>("")
-    val historicalPriceRegionSilver = ObservableField<String>("")
-    val historicalPriceRegionCopper = ObservableField<String>("")
+    val historicalPriceServerGold = ObservableField<String>(EMPTY)
+    val historicalPriceServerSilver = ObservableField<String>(EMPTY)
+    val historicalPriceServerCopper = ObservableField<String>(EMPTY)
 
     val quantityServer = ObservableField<String>("")
-    val quantityRegion = ObservableField<String>("")
     val isVisibility = ObservableBoolean(false)
 
     fun setInfoItem(id: String, img: String) {
-        var money = ArrayList<Int>()
-        Log.e("AAA", id)
+        var money: ArrayList<Int>
         isVisibility.set(false)
         addToDisposable(itemById
                 .getItemById(id)
@@ -58,46 +46,31 @@ class ItemViewModel : BaseViewModel<ItemRouter>() {
                         onNext = {
                             item = BaseItem(it.id, it.name, img)
                             this.img.set(img)
-                            serverName.set("Aegwynn(EU)")
-                            regionName.set("Region(EU)")
+                            serverName.set(App.sharedPref.getString(REALM, EMPTY))
                             itemName.set(it.name)
 
                             money = transform(it.minimumBuyout)
                             minBuyoutServerCopper.set(money[0].toString())
                             minBuyoutServerSilver.set(money[1].toString())
                             minBuyoutServerGold.set(money[2].toString())
-                            money = transform(it.regionMinimumBuyout)
-                            minBuyoutRegionCopper.set(money[0].toString())
-                            minBuyoutRegionSilver.set(money[1].toString())
-                            minBuyoutRegionGold.set(money[2].toString())
                             money = transform(it.marketValue)
                             marketValueServerCopper.set(money[0].toString())
                             marketValueServerSilver.set(money[1].toString())
                             marketValueServerGold.set(money[2].toString())
-                            money = transform(it.regionMarketValue)
-                            marketValueRegionCopper.set(money[0].toString())
-                            marketValueRegionSilver.set(money[1].toString())
-                            marketValueRegionGold.set(money[2].toString())
                             money = transform(it.historicalPrice)
                             historicalPriceServerCopper.set(money[0].toString())
                             historicalPriceServerSilver.set(money[1].toString())
                             historicalPriceServerGold.set(money[2].toString())
-                            money = transform(it.regionHistoricalPrice)
-                            historicalPriceRegionCopper.set(money[0].toString())
-                            historicalPriceRegionSilver.set(money[1].toString())
-                            historicalPriceRegionGold.set(money[2].toString())
                             quantityServer.set(it.quantity)
-                            quantityRegion.set(it.regionQuantity)
                             isVisibility.set(true)
                         },
                         onError = {
                             router?.showError(it)
-                            Log.e("QQ", it.message)
                         }
                 ))
     }
 
-    fun addItem(view: View){
+    fun addItem(view: View) {
         saveItem.saveGroupItem(item)
         router?.goToAuction()
     }

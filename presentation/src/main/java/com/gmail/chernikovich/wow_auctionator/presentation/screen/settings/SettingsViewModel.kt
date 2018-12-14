@@ -21,15 +21,12 @@ class SettingsViewModel : BaseViewModel<SettingsRouter>() {
     fun loadRealm(){
         UseCaseProvide.provideGetRealmsUseCase().getRealms().subscribeBy(
                 onNext = {
-                    Log.e("Realms", it.toString())
                     it.map {
                         adapter.add(it.name)
                     }
                 },
                 onError = {
-//                    router?.showError(it)
-                    Log.e("AAA", it.message)
-                    router?.showError("Hello")
+                    router?.showError(it)
                 },
                 onComplete = {
                     realmVisibility.set(true)

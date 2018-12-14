@@ -12,10 +12,8 @@ class App : Application() {
     companion object {
         lateinit var instance: App
         lateinit var sharedPref: SharedPreferences
-        private const val ACCESS_TOKEN_ = "UScyWT4QeIgWremVAHTEj6aaHSlW22UD2S"
-        private const val REGION_ = "us"
-        private const val NAMESPACE_ = "dynamic-us"
-        private const val LOCALE_ ="en_US"
+        private const val ACCESS_TOKEN_APP = "UScyWT4QeIgWremVAHTEj6aaHSlW22UD2S"
+        private const val LOCALE_APP ="en_US"
     }
 
     init {
@@ -26,10 +24,10 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         sharedPref = PreferenceManager.getDefaultSharedPreferences(instance)
-        sharedPref.edit().putString(ACCESS_TOKEN, ACCESS_TOKEN_).apply()
-        sharedPref.edit().putString(REGION, REGION_).apply()
-        sharedPref.edit().putString(NAMESPACE, NAMESPACE_).apply()
-        sharedPref.edit().putString(LOCALE, LOCALE_).apply()
+        sharedPref.edit().putString(ACCESS_TOKEN, ACCESS_TOKEN_APP).apply()
+        sharedPref.edit().putString(LOCALE, LOCALE_APP).apply()
+        sharedPref.edit().putBoolean(IS_LOAD_COMPLITE, false).apply()
+
         Fabric.with(this, Crashlytics())
 
     }

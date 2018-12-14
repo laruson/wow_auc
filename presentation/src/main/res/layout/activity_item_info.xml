@@ -11,6 +11,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:background="@mipmap/background"
         android:layout_height="match_parent">
 
         <ProgressBar
@@ -29,109 +30,9 @@
 
 
             <TextView
-                android:id="@+id/historicalPriceRegionGold"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@mipmap/gold_mini"
-                android:text="@{viewModel.historicalPriceRegionGold}"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/historicalPriceServerCopper"
-                app:layout_constraintStart_toStartOf="@+id/marketValueRegionGold"
-                app:layout_constraintTop_toTopOf="@+id/historicalPriceServerCopper" />
-
-            <TextView
-                android:id="@+id/historicalPriceRegionSilver"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/silver"
-                android:text="@{viewModel.historicalPriceRegionSilver}"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/historicalPriceRegionGold"
-                app:layout_constraintTop_toTopOf="@+id/historicalPriceRegionGold" />
-
-            <TextView
-                android:id="@+id/historicalPriceRegionCopper"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/copper"
-                android:text="@{viewModel.historicalPriceRegionCopper}"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/historicalPriceRegionSilver"
-                app:layout_constraintTop_toTopOf="@+id/historicalPriceRegionSilver" />
-
-            <TextView
-                android:id="@+id/marketValueRegionCopper"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/copper"
-                android:text="@{viewModel.marketValueRegionCopper}"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/marketValueRegionSilver"
-                app:layout_constraintTop_toTopOf="@+id/marketValueRegionSilver" />
-
-            <TextView
-                android:id="@+id/marketValueRegionSilver"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/silver"
-                android:text="@{viewModel.marketValueRegionSilver}"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/marketValueRegionGold"
-                app:layout_constraintTop_toTopOf="@+id/marketValueRegionGold" />
-
-            <TextView
-                android:id="@+id/marketValueRegionGold"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@mipmap/gold_mini"
-                android:text="@{viewModel.marketValueRegionGold}"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/marketValueServerCopper"
-                app:layout_constraintStart_toStartOf="@+id/minBuyoutRegionGold"
-                app:layout_constraintTop_toTopOf="@+id/marketValueServerCopper" />
-
-            <TextView
-                android:id="@+id/minBuyoutRegionGold"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@mipmap/gold_mini"
-                android:text="@{viewModel.minBuyoutRegionGold}"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/minimumBuyout"
-                app:layout_constraintStart_toStartOf="@+id/regionName"
-                app:layout_constraintTop_toTopOf="@+id/minimumBuyout" />
-
-            <TextView
-                android:id="@+id/minBuyoutRegionCopper"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/copper"
-                android:text="@{viewModel.minBuyoutRegionCopper}"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/regionName"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/minBuyoutRegionSilver"
-                app:layout_constraintTop_toTopOf="@+id/minBuyoutRegionSilver" />
-
-            <TextView
-                android:id="@+id/minBuyoutRegionSilver"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:drawableEnd="@mipmap/silver"
-                android:text="@{viewModel.minBuyoutRegionSilver}"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/minBuyoutRegionGold"
-                app:layout_constraintTop_toTopOf="@+id/minBuyoutRegionGold" />
-
-            <TextView
                 android:id="@+id/historicalPriceServerGold"
                 android:layout_width="0dp"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@mipmap/gold_mini"
                 android:text="@{viewModel.historicalPriceServerGold}"
@@ -144,7 +45,9 @@
                 android:id="@+id/historicalPriceServerSilver"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:textColor="@color/black"
+
+                android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.historicalPriceServerSilver}"
                 android:textSize="12sp"
@@ -156,7 +59,9 @@
                 android:id="@+id/historicalPriceServerCopper"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:textColor="@color/black"
+
+                android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/copper"
                 android:text="@{viewModel.historicalPriceServerCopper}"
                 android:textSize="12sp"
@@ -168,6 +73,8 @@
                 android:id="@+id/marketValueServerGold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
                 android:drawableEnd="@mipmap/gold_mini"
                 android:text="@{viewModel.marketValueServerGold}"
                 android:textSize="12sp"
@@ -179,7 +86,9 @@
                 android:id="@+id/marketValueServerSilver"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:textColor="@color/black"
+
+                android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.marketValueServerSilver}"
                 android:textSize="12sp"
@@ -191,7 +100,9 @@
                 android:id="@+id/marketValueServerCopper"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+
                 android:drawableEnd="@mipmap/copper"
                 android:text="@{viewModel.marketValueServerCopper}"
                 android:textSize="12sp"
@@ -203,19 +114,21 @@
                 android:id="@+id/minBuyoutServerCopper"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:textColor="@color/black"
+
+                android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/copper"
                 android:text="@{viewModel.minBuyoutServerCopper}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/minBuyoutServerSilver"
-                app:layout_constraintEnd_toStartOf="@+id/regionName"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/minBuyoutServerSilver"
                 app:layout_constraintTop_toTopOf="@+id/minBuyoutServerSilver" />
 
             <ImageView
                 android:id="@+id/icon"
                 android:layout_width="80dp"
+                android:textColor="@color/black"
+
                 android:layout_height="80dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="64dp"
@@ -227,6 +140,8 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
                 android:layout_marginStart="25dp"
                 android:text="@{viewModel.itemName}"
                 android:textSize="18sp"
@@ -238,6 +153,8 @@
                 android:id="@+id/statName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="70dp"
                 android:gravity="center"
@@ -251,27 +168,14 @@
                 android:id="@+id/serverName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:textColor="@color/black"
                 android:gravity="center"
-
                 android:text="@{viewModel.serverName}"
                 android:textSize="18sp"
-
                 app:layout_constraintStart_toEndOf="@+id/statName"
                 app:layout_constraintTop_toTopOf="@+id/statName"
                 app:layout_constraintWidth_percent="0.33" />
-
-            <TextView
-                android:id="@+id/regionName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-
-                android:text="@{viewModel.regionName}"
-                android:textSize="18sp"
-
-                app:layout_constraintStart_toEndOf="@+id/serverName"
-                app:layout_constraintTop_toTopOf="@+id/serverName"
-                app:layout_constraintWidth_percent="0.31" />
 
             <TextView
                 android:id="@+id/minimumBuyout"
@@ -279,10 +183,9 @@
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
                 android:text="@string/minimum_buyout"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/serverName"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/statName" />
 
@@ -292,10 +195,10 @@
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
+
                 android:text="@string/market_value"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/serverName"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/minimumBuyout" />
 
@@ -303,12 +206,12 @@
                 android:id="@+id/historicalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
+                android:textColor="@color/black"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
                 android:text="@string/historical_price"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/serverName"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/marketValue" />
 
@@ -316,6 +219,8 @@
                 android:id="@+id/quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
+                android:textColor="@color/black"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
@@ -328,8 +233,10 @@
             <TextView
                 android:id="@+id/minBuyoutServerSilver"
                 android:layout_width="32dp"
+                android:textColor="@color/black"
+
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.minBuyoutServerSilver}"
                 android:textSize="12sp"
@@ -339,9 +246,11 @@
 
             <TextView
                 android:id="@+id/minBuyoutServerGold"
+                android:textColor="@color/black"
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="60dp"
                 android:drawableEnd="@mipmap/gold_mini"
                 android:text="@{viewModel.minBuyoutServerGold}"
                 android:textSize="12sp"
@@ -353,6 +262,8 @@
                 android:id="@+id/quantityServer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
                 android:layout_marginEnd="8dp"
                 android:text="@{viewModel.quantityServer}"
                 android:textSize="16sp"
@@ -360,22 +271,11 @@
                 app:layout_constraintStart_toStartOf="@+id/serverName"
                 app:layout_constraintTop_toTopOf="@+id/quantity" />
 
-            <TextView
-                android:id="@+id/quantityRegion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@{viewModel.quantityRegion}"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/regionName"
-                app:layout_constraintHorizontal_bias="0.482"
-                app:layout_constraintStart_toEndOf="@+id/serverName"
-                app:layout_constraintTop_toTopOf="@+id/quantityServer" />
-
             <Button
                 android:id="@+id/addToGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
