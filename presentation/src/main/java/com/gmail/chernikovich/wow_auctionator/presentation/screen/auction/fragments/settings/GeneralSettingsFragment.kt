@@ -1,7 +1,9 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.settings
 
 import android.arch.lifecycle.ViewModelProviders
+import android.os.Bundle
 import com.gmail.chernikovich.wow_auctionator.R
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.databinding.FragmentSettingsBinding
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseMvvmFragment
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
@@ -15,5 +17,4 @@ class GeneralSettingsFragment : BaseMvvmFragment<
     }
 
     override fun provideLayoutId(): Int = R.layout.fragment_settings
-
 }

@@ -5,8 +5,6 @@ import io.reactivex.Flowable
 import io.reactivex.Observable
 
 interface PetRepository {
-    fun getPetsRest(): Flowable<List<Pet>>
-
     fun getPetsDao():Flowable<List<Pet>>
 
     fun searchPet(searchPet: SearchPet): Flowable<List<Pet>>

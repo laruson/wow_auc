@@ -5,14 +5,11 @@ import android.util.Log
 fun transform(value: String): ArrayList<Int> {
     val list = ArrayList<Int>()
     var string = value
-    Log.e("AAA", value)
     if (value.length < 6) {
         while (string.length < 6) {
             string = "0$string"
         }
     }
-    Log.e("AAA", string)
-
 
     val copper = string.subSequence(string.length - 2, string.length).toString()
     if (copper == "00")

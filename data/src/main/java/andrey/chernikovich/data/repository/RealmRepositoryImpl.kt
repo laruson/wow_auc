@@ -13,10 +13,11 @@ import andrey.chernikovich.domain.repository.RealmRepository
 import andrey.chernikovich.domain.sharedpref.SharedPref
 import io.reactivex.Flowable
 import io.reactivex.rxkotlin.subscribeBy
+import javax.inject.Inject
 
-class RealmRepositoryImpl(private val restService: RestServiceRealm,
-                          private val dao: RealmDao,
-                          private val shared: SharedPref) : RealmRepository {
+class RealmRepositoryImpl @Inject constructor(private val restService: RestServiceRealm,
+                                              private val dao: RealmDao,
+                                              private val shared: SharedPref) : RealmRepository {
 
     override fun getRealms(): Flowable<List<Realm>> {
 

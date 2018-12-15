@@ -5,9 +5,10 @@ import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.TokenRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class GetTokenUseCase(postExecutorThread: PostExecutorThread,
-                      private val tokenRepository: TokenRepository)
+class GetTokenUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                          private val tokenRepository: TokenRepository)
     : BaseUseCase(postExecutorThread), TokenUseCase {
     override fun getToken(): Observable<Token> {
         return tokenRepository.getToken()

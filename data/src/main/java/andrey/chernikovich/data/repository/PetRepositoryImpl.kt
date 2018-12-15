@@ -5,20 +5,20 @@ import andrey.chernikovich.data.db.entity.mapper.transformToDomain
 import andrey.chernikovich.data.db.entity.mapper.transformToPetDb
 import andrey.chernikovich.data.net.entity.mapper.transformToDomain
 import andrey.chernikovich.data.net.entity.mapper.transformToPetDb
-import andrey.chernikovich.data.net.rest.service.RestServisePet
+import andrey.chernikovich.data.net.rest.service.RestServicePet
 import andrey.chernikovich.data.sharedpref.ACCESS_TOKEN
 import andrey.chernikovich.data.sharedpref.LOCALE
 import andrey.chernikovich.domain.entity.pet.*
 import andrey.chernikovich.domain.repository.PetRepository
 import andrey.chernikovich.domain.sharedpref.SharedPref
-import android.util.Log
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
+import javax.inject.Inject
 
-class PetRepositoryImpl(private val restService: RestServisePet,
-                        private val dao: PetDao,
-                        private val shared: SharedPref) : PetRepository {
+class PetRepositoryImpl @Inject constructor(private val restService: RestServicePet,
+                                            private val dao: PetDao,
+                                            private val shared: SharedPref) : PetRepository {
     override fun getPetsDao(): Flowable<List<Pet>> {
         return dao.getPets().map { pets ->
             if (pets.isEmpty()) {
@@ -39,15 +39,6 @@ class PetRepositoryImpl(private val restService: RestServisePet,
                 it.transformToDomain()
             }
         }
-    }
-
-    override fun getPetsRest(): Flowable<List<Pet>> {
-        return restService.getPets(shared.getValue(LOCALE), shared.getValue(ACCESS_TOKEN)).map {
-            it.pets.map {
-                it.transformToDomain()
-            }
-        }
-
     }
 
     override fun searchPet(searchPet: SearchPet): Flowable<List<Pet>> {

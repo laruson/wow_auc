@@ -5,9 +5,10 @@ import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.PetRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class GetPetSpeciesUseCase(postExecutorThread: PostExecutorThread,
-                           private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
+class GetPetSpeciesUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                               private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
     fun getPetAbility(speciesId: Int): Observable<PetSpecies> {
         return petRepository.getPetSpecies(speciesId)
                 .observeOn(postExecutorThread)

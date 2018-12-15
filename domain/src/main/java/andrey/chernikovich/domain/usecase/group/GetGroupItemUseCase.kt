@@ -5,9 +5,10 @@ import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.GroupItemRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class GetGroupItemUseCase (postExecutorThread: PostExecutorThread,
-                           private val groupItemRepository: GroupItemRepository) : BaseUseCase(postExecutorThread), GroupItemUseCase {
+class GetGroupItemUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                              private val groupItemRepository: GroupItemRepository) : BaseUseCase(postExecutorThread), GroupItemUseCase {
     fun getGroupItems(): Flowable<List<BaseItem>> {
         return groupItemRepository.getItems().take(1)
                 .observeOn(postExecutorThread)

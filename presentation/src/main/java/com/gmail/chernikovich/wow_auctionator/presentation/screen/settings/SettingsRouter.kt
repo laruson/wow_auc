@@ -9,7 +9,7 @@ import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.Auctio
 class SettingsRouter(activity:SettingsActivity) : BaseRouter<SettingsActivity>(activity) {
 
     fun goToAuction(){
-        val intent = Intent(App.instance, AuctionActivity::class.java)
+        val intent = Intent(activity, AuctionActivity::class.java)
         activity.startActivity(intent)
         activity.finish()
     }

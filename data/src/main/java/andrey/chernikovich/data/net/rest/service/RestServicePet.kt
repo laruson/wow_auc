@@ -7,8 +7,9 @@ import andrey.chernikovich.data.net.entity.pet.PetSpeciesResponse
 import andrey.chernikovich.data.net.rest.service.base.BaseRestService
 import io.reactivex.Flowable
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class RestServisePet(apiUrl: String) : BaseRestService(apiUrl) {
+class RestServicePet @Inject constructor(apiUrl: String) : BaseRestService(apiUrl) {
     fun getPets(locale: String,
                 access_token: String): Flowable<PetListResponse> {
         return restApiPet.getPets(locale, access_token)

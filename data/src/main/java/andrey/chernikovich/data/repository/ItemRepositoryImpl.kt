@@ -12,9 +12,10 @@ import andrey.chernikovich.domain.entity.item.ItemSearch
 import andrey.chernikovich.domain.repository.ItemRepository
 import io.reactivex.Flowable
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class ItemRepositoryImpl(private val restService: RestServiceItem,
-                         private val dao: ItemDao) : ItemRepository {
+class ItemRepositoryImpl @Inject constructor(private val restService: RestServiceItem,
+                                             private val dao: ItemDao) : ItemRepository {
 
     override fun saveItems(items: List<BaseItem>) {
         dao.insert(items.map {

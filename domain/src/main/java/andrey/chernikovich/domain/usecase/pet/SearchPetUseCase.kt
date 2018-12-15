@@ -6,9 +6,10 @@ import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.PetRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class SearchPetUseCase(postExecutorThread: PostExecutorThread,
-                       private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
+class SearchPetUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                           private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
     fun searchPets(searchPet: SearchPet): Flowable<List<Pet>> {
         return petRepository.searchPet(searchPet)
                 .observeOn(postExecutorThread)

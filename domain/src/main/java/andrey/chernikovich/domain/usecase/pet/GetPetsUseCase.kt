@@ -7,14 +7,10 @@ import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
+import javax.inject.Inject
 
-class GetPetsUseCase(postExecutorThread: PostExecutorThread,
-                     private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
-    fun getPetsRest(): Flowable<List<Pet>> {
-        return petRepository.getPetsRest()
-                .observeOn(postExecutorThread)
-                .subscribeOn(workExecutorThread)
-    }
+class GetPetsUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                         private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
 
     fun getPetsDao():Flowable<List<Pet>>{
         return petRepository.getPetsDao()

@@ -1,21 +1,29 @@
-package com.gmail.chernikovich.wow_auctionator.presentation.screen.item
+package com.gmail.chernikovich.wow_auctionator.presentation.screen.info.item
 
 import andrey.chernikovich.data.sharedpref.REALM
 import andrey.chernikovich.domain.entity.item.BaseItem
+import andrey.chernikovich.domain.usecase.group.SaveGroupItemUseCase
+import andrey.chernikovich.domain.usecase.item.GetItemByIdUseCase
+import android.content.SharedPreferences
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
-import android.util.Log
 import android.view.View
 import com.gmail.chernikovich.wow_auctionator.app.App
-import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.InfoRouter
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.transform
 import io.reactivex.rxkotlin.subscribeBy
+import javax.inject.Inject
 
-class ItemViewModel : BaseViewModel<ItemRouter>() {
-    private val itemById = UseCaseProvide.provideGetItemByIdUseCase()
-    private val saveItem = UseCaseProvide.provideSaveItemUseCase()
+class ItemInfoViewModel: BaseViewModel<InfoRouter>() {
+    @Inject
+    lateinit var itemById : GetItemByIdUseCase
+    @Inject
+    lateinit var saveItem : SaveGroupItemUseCase
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
     private lateinit var item: BaseItem
 
     val img = ObservableField<String>(EMPTY)
@@ -37,6 +45,10 @@ class ItemViewModel : BaseViewModel<ItemRouter>() {
     val quantityServer = ObservableField<String>("")
     val isVisibility = ObservableBoolean(false)
 
+    init {
+        App.appComponent.injectViewModel(this)
+    }
+
     fun setInfoItem(id: String, img: String) {
         var money: ArrayList<Int>
         isVisibility.set(false)
@@ -46,7 +58,7 @@ class ItemViewModel : BaseViewModel<ItemRouter>() {
                         onNext = {
                             item = BaseItem(it.id, it.name, img)
                             this.img.set(img)
-                            serverName.set(App.sharedPref.getString(REALM, EMPTY))
+                            serverName.set(sharedPreferences.getString(REALM, EMPTY))
                             itemName.set(it.name)
 
                             money = transform(it.minimumBuyout)

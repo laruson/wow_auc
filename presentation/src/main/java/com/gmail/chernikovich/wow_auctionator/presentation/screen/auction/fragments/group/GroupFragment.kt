@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.gmail.chernikovich.wow_auctionator.R
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.databinding.FragmentGroupBinding
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseMvvmFragment
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter

@@ -4,24 +4,23 @@ import andrey.chernikovich.data.sharedpref.IS_LOAD_COMPLITE
 import andrey.chernikovich.data.sharedpref.NAMESPACE
 import andrey.chernikovich.data.sharedpref.REALM
 import andrey.chernikovich.data.sharedpref.REGION
+import andrey.chernikovich.domain.sharedpref.SharedPref
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
 import com.gmail.chernikovich.wow_auctionator.R
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.databinding.ActivitySettingsBinding
-import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseMvvmActivity
-import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_settings.*
+import javax.inject.Inject
 
 class SettingsActivity : BaseMvvmActivity<
         SettingsViewModel,
         SettingsRouter,
         ActivitySettingsBinding>() {
 
-    private val list = mutableListOf<String>()
+    @Inject
+    lateinit var sharedPreferences: SharedPref
 
     override fun provideViewModel()
             : SettingsViewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
@@ -34,26 +33,31 @@ class SettingsActivity : BaseMvvmActivity<
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        App.appComponent.injectActivity(this)
 
         readyRegionButton.setOnClickListener {
             val text = regionEditText.text.toString()
             if (text == "eu" || text == "us") {
-                App.sharedPref.edit().putString(REGION, text).apply()
-                App.sharedPref.edit().putString(NAMESPACE, "dynamic-$text").apply()
+                sharedPreferences.putValue(REGION, text)
+                sharedPreferences.putValue(NAMESPACE, "dynamic-$text")
                 realmAutoComp.setAdapter(viewModel.adapter)
                 viewModel.loadRealm()
                 viewModel.regionVisibility.set(false)
             } else {
                 router.showError("Incorrect region")
-
+                return@setOnClickListener
             }
         }
 
         readyButton.setOnClickListener {
             val text = realmAutoComp.text.toString()
-            App.sharedPref.edit().putString(REALM, text).apply()
-            val load = App.sharedPref.getBoolean(IS_LOAD_COMPLITE, false)
-            Log.e("AA", load.toString())
+            if(!viewModel.isCorrectRealm(text)){
+                router.showError("Faice realm")
+                return@setOnClickListener
+            }
+
+            sharedPreferences.putValue(REALM, text)
+            val load = sharedPreferences.getValueBoolean(IS_LOAD_COMPLITE)
             if (!load) {
                 router.goToLoadingScreen()
             } else

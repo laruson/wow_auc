@@ -1,14 +1,19 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.token
 
+import andrey.chernikovich.domain.usecase.token.GetTokenUseCase
 import android.databinding.*
-import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
 import io.reactivex.rxkotlin.subscribeBy
 import java.text.DateFormat
+import javax.inject.Inject
 
 class TokenViewModel : BaseViewModel<AuctionRouter>() {
-    private val token = UseCaseProvide.provideGetTokenUseCase()
+
+    @Inject
+    lateinit var token : GetTokenUseCase
+
     val gold = ObservableField<String>()
     val lastUpdate = ObservableField<String>()
     val isProgress = ObservableBoolean(true)
@@ -18,6 +23,8 @@ class TokenViewModel : BaseViewModel<AuctionRouter>() {
     }
 
     private fun show(){
+        App.appComponent.injectViewModel(this)
+
         addToDisposable(token.getToken().subscribeBy(
                 onNext = {
                     isProgress.set(true)

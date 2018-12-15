@@ -1,10 +1,12 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.utils.adapters
 
+import android.content.Context
 import android.databinding.BindingAdapter
 import android.support.v4.content.ContextCompat
 import android.widget.TextView
 import com.gmail.chernikovich.wow_auctionator.R
 import com.gmail.chernikovich.wow_auctionator.app.App
+import javax.inject.Inject
 
 @BindingAdapter("android:text")
 fun textInt(view: TextView, value: Int) {

@@ -9,9 +9,10 @@ import andrey.chernikovich.domain.entity.token.Token
 import andrey.chernikovich.domain.repository.TokenRepository
 import andrey.chernikovich.domain.sharedpref.SharedPref
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class TokenRepositoryImpl(private val restService: RestServiceToken,
-                          private val shared: SharedPref) : TokenRepository {
+class TokenRepositoryImpl @Inject constructor(private val restService: RestServiceToken,
+                                              private val shared: SharedPref) : TokenRepository {
 
     override fun getToken(): Observable<Token> {
         return restService

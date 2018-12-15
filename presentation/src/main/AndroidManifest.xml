@@ -18,7 +18,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screen.item.ItemActivity" />
+        <activity android:name=".presentation.screen.info.InfoActivity" />
         <activity android:name=".presentation.screen.settings.SettingsActivity"/>
         <meta-data
             android:name="io.fabric.ApiKey"

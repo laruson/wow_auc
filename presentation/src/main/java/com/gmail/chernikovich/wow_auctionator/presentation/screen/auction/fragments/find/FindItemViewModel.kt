@@ -1,32 +1,37 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.find
 
 import andrey.chernikovich.domain.entity.item.ItemSearch
+import andrey.chernikovich.domain.usecase.item.GetItemsUseCase
+import andrey.chernikovich.domain.usecase.item.SearchItemUseCase
 import android.databinding.ObservableBoolean
-import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.find.adapter.ItemsItemAdapter
 import io.reactivex.rxkotlin.subscribeBy
+import javax.inject.Inject
 
 class FindItemViewModel : BaseViewModel<AuctionRouter>() {
 
-    private val itemsUseCase = UseCaseProvide.provideGetItemsUseCase()
-    private val searchItem = UseCaseProvide.provideSearchItem()
+    @Inject
+    lateinit var itemsUseCase : GetItemsUseCase
+    @Inject
+    lateinit var searchItem : SearchItemUseCase
 
     val isProgressEnabled = ObservableBoolean(true)
 
     val adapter = ItemsItemAdapter()
 
     init {
-
-        adapter.clickItemSubject.subscribeBy (
+        App.appComponent.injectViewModel(this)
+        addToDisposable(adapter.clickItemSubject.subscribeBy (
                 onNext = {
-                    router?.goToItemInfo(it.item.id,it.item.image)
+                    router?.goToInfo(it.item.id,it.item.image)
                 },
                 onError = {
                     router?.showError(it)
                 }
-        )
+        ))
 
         addToDisposable(itemsUseCase.getItems().subscribeBy(
                 onNext = {

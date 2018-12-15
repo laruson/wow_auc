@@ -1,17 +1,19 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.group.adapter
 
 import andrey.chernikovich.domain.entity.item.BaseItem
+import andrey.chernikovich.domain.usecase.group.DeleteGroupItemUseCase
 import android.view.ViewGroup
-import com.gmail.chernikovich.wow_auctionator.factory.UseCaseProvide
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerAdapter
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseViewHolder
 import kotlinx.android.synthetic.main.item_my_group_item.view.*
+import javax.inject.Inject
 
 class GroupItemAdapter : BaseRecyclerAdapter<
         BaseItem,
         GroupItemViewModel>() {
 
-    val deleteItem = UseCaseProvide.provideDeleteGroupItemUseCase()
+    @Inject
+    lateinit var deleteItem : DeleteGroupItemUseCase
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int)
             : GroupItemViewHolder {

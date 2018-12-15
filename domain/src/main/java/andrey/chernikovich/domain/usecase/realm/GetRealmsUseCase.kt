@@ -5,9 +5,10 @@ import andrey.chernikovich.domain.executor.PostExecutorThread
 import andrey.chernikovich.domain.repository.RealmRepository
 import andrey.chernikovich.domain.usecase.BaseUseCase
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class GetRealmsUseCase(postExecutorThread: PostExecutorThread,
-                       private val realmRepository: RealmRepository)
+class GetRealmsUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
+                                           private val realmRepository: RealmRepository)
     : BaseUseCase(postExecutorThread), RealmUseCase {
     override fun getRealms(): Flowable<List<Realm>> {
         return realmRepository.getRealms()

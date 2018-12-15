@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.gmail.chernikovich.wow_auctionator.R
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.databinding.FragmentFindItemBinding
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseMvvmFragment
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
@@ -27,7 +28,6 @@ class FindItemFragment : BaseMvvmFragment<
     }
 
     override fun provideLayoutId(): Int = R.layout.fragment_find_item
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

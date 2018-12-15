@@ -2,6 +2,7 @@ package andrey.chernikovich.data.db.assets
 
 import andrey.chernikovich.data.db.entity.ItemDB
 import andrey.chernikovich.data.sharedpref.IS_LOAD_COMPLITE
+import andrey.chernikovich.domain.sharedpref.SharedPref
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
@@ -21,19 +22,19 @@ fun ioThread(f: () -> Unit) {
 }
 
 
-fun loadItems(context: Context, sharedPreferences: SharedPreferences) : Boolean {
+fun loadItems(context: Context, sharedPreferences: SharedPref) : Boolean {
 
     ioThread {
         val gson = Gson()
         val reader = BufferedReader(InputStreamReader(context.assets.open("items")))
         var line = reader.readLine()
-        sharedPreferences.edit().putBoolean(IS_LOAD_COMPLITE, false).apply()
+        sharedPreferences.putValueBoolean(IS_LOAD_COMPLITE, false)
         while (line != null) {
             val item = gson.fromJson(line, ItemDB::class.java)
             items.add(item)
             line = reader.readLine()
         }
-        sharedPreferences.edit().putBoolean(IS_LOAD_COMPLITE, true).apply()
+        sharedPreferences.putValueBoolean(IS_LOAD_COMPLITE, true)
         reader.close()
     }
     return true
