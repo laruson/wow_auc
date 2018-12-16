@@ -13,5 +13,5 @@ interface PetRepository {
 
     fun getPetAbilityInfo(abilityId: Int): Observable<PetAbility>
 
-    fun getPetSpecies(speciesId: Int): Observable<PetSpecies>
+    fun getPetSpecies(speciesId: String): Observable<PetSpecies>
 }

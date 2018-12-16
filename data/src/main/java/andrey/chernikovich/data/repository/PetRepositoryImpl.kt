@@ -11,6 +11,7 @@ import andrey.chernikovich.data.sharedpref.LOCALE
 import andrey.chernikovich.domain.entity.pet.*
 import andrey.chernikovich.domain.repository.PetRepository
 import andrey.chernikovich.domain.sharedpref.SharedPref
+import android.util.Log
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
@@ -62,7 +63,7 @@ class PetRepositoryImpl @Inject constructor(private val restService: RestService
                 }
     }
 
-    override fun getPetSpecies(speciesId: Int): Observable<PetSpecies> {
+    override fun getPetSpecies(speciesId: String): Observable<PetSpecies> {
         return restService.getPetSpecies(speciesId,
                 shared.getValue(LOCALE),
                 shared.getValue(ACCESS_TOKEN))

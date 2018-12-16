@@ -11,5 +11,5 @@ data class PetSpeciesResponse(
         val canBattle: Boolean,
         val icon: String,
         val description: String,
-        val petAbility: List<PetAbility>
+        val abilities: List<PetAbility>
 ) :NetEntity

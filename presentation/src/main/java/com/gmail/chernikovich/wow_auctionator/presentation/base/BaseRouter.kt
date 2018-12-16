@@ -35,6 +35,21 @@ abstract class BaseRouter<A : Activity>(val activity: A) {
         fragmentTransient.commit()
     }
 
+    fun replaceFragment(fragmentManager: FragmentManager,
+                        fragment: BaseFragment,
+                        containerResId: Int,
+                        addToBackStack: Boolean = false) {
+        val fragmentTransient = fragmentManager.beginTransaction()
+
+        fragmentTransient.replace(containerResId, fragment, fragment::class.java.canonicalName)
+
+        if (addToBackStack) {
+            fragmentTransient.addToBackStack(null)
+        }
+
+        fragmentTransient.commit()
+    }
+
     fun goToMainMenu(){
         activity.startActivity(Intent(activity, AuctionActivity::class.java))
         activity.finish()

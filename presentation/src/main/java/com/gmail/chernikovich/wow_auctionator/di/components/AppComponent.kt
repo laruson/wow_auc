@@ -13,6 +13,7 @@ import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragme
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.token.TokenViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.InfoViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.item.ItemInfoViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.pet.PetInfoViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.settings.SettingsActivity
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.settings.SettingsViewModel
 import dagger.Component
@@ -32,6 +33,8 @@ interface AppComponent {
     fun injectActivity(activity: AuctionActivity)
 
     fun injectActivity(activity: SettingsActivity)
+
+    fun injectViewModel(viewModel: PetInfoViewModel)
 
     fun injectViewModel(viewModel: FindItemViewModel)
 

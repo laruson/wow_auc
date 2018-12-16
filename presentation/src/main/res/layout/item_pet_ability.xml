@@ -1,0 +1,156 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gmail.chernikovich.wow_auctionator.presentation.screen.info.pet.adapter.PetAbilityItemViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:id="@+id/imageViewAbilityIcon"
+            android:src="@{viewModel.abilityIcon}"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:background="@color/bacground_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewAbilityIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.75">
+
+            <ImageView
+                android:id="@+id/imageViewSkillType"
+                android:srcFamily="@{viewModel.skillType}"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSkillName"
+                android:textColor="@color/common"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{viewModel.skillName}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSkillType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSkillType"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSkillType" />
+
+            <ImageView
+                android:id="@+id/imageViewUp"
+                android:src="@drawable/up"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/imageViewSkillType"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewSkillType" />
+
+            <ImageView
+                android:id="@+id/imageViewVsUp"
+                android:srcFamily="@{viewModel.vsUpIcon}"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewUp"
+                app:layout_constraintStart_toEndOf="@+id/textViewVs1"
+                app:layout_constraintTop_toTopOf="@+id/imageViewUp" />
+
+            <ImageView
+                android:id="@+id/imageViewVsDown"
+                android:srcFamily="@{viewModel.vsDownIcon}"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewDown"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewVsUp"
+                app:layout_constraintStart_toStartOf="@+id/imageViewVsUp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewDown" />
+
+            <ImageView
+                android:id="@+id/imageViewDown"
+                android:src="@drawable/down"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewUp"
+                app:layout_constraintStart_toStartOf="@+id/imageViewUp"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewUp" />
+
+            <TextView
+                android:id="@+id/textViewVs1"
+                android:textColor="@color/common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/vs"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewUp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewUp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewUp" />
+
+            <TextView
+                android:id="@+id/textViewVs2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vs"
+                android:textColor="@color/common"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewDown"
+                app:layout_constraintEnd_toEndOf="@+id/textViewVs1"
+                app:layout_constraintStart_toStartOf="@+id/textViewVs1"
+                app:layout_constraintTop_toTopOf="@+id/imageViewDown" />
+
+            <TextView
+                android:id="@+id/textViewVsUpType"
+                android:textPetType="@{viewModel.vsUpType}"
+                android:layout_width="0dp"
+                android:textColor="@color/common"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewVsUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewVsUp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewVsUp" />
+
+            <TextView
+                android:id="@+id/textViewVsDownType"
+                android:textPetType="@{viewModel.vsDownType}"
+                android:textColor="@color/common"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewVsDown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewVsUpType"
+                app:layout_constraintTop_toTopOf="@+id/imageViewVsDown" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

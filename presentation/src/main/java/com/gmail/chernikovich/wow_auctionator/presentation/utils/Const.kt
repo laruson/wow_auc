@@ -6,6 +6,16 @@ import com.gmail.chernikovich.wow_auctionator.app.App
 
 const val EMPTY = "Empty"
 
+//intent const
+
+const val ID_EXTRA = "ID_EXTRA"
+const val IMG_EXTRA = "IMG_EXTRA"
+const val QUALITY_EXTRA = "QUALITY_EXTRA"
+const val CONTENT = "CONTENT"
+const val ITEM_CONTENT = "ITEM_CONTENT"
+const val PET_CONTENT = "PET_CONTENT"
+
+
 //pet Type icon
 
 const val HUMANOID = "https://wow.zamimg.com/images/wow/icons/large/icon_petfamily_humanoid.jpg"

@@ -26,7 +26,7 @@ interface RestApiPet {
     //pet species
     //https://us.api.blizzard.com/wow/pet/species/2047?locale=en_US&access_token=USt4bd4huAL6Rvn11K4vAwBhDBxtcufsfg
     @GET("/wow/pet/species/{speciesID}")
-    fun getPetSpecies(@Path("speciesID") speciesID: Int,
+    fun getPetSpecies(@Path("speciesID") speciesID: String,
                       @Query("locale") locale: String,
                       @Query("access_token") access_token: String): Observable<PetSpeciesResponse>
 }

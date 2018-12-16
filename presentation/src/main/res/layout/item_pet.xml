@@ -1,4 +1,4 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -49,7 +49,7 @@
 
         <ImageView
             android:id="@+id/imageViewHealth"
-            android:src="@{viewModel.healthImage}"
+            android:srcPetStats="@{viewModel.healthImage}"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="30dp"
@@ -59,7 +59,7 @@
 
         <ImageView
             android:id="@+id/imageViewPower"
-            android:src="@{viewModel.powerImage}"
+            android:srcPetStats="@{viewModel.powerImage}"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="50dp"
@@ -69,7 +69,7 @@
 
         <ImageView
             android:id="@+id/imageViewSpeed"
-            android:src="@{viewModel.speedImage}"
+            android:srcPetStats="@{viewModel.speedImage}"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="50dp"

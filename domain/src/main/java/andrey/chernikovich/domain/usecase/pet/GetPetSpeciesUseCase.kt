@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class GetPetSpeciesUseCase @Inject constructor(postExecutorThread: PostExecutorThread,
                                                private val petRepository: PetRepository) : BaseUseCase(postExecutorThread), PetUseCase {
-    fun getPetAbility(speciesId: Int): Observable<PetSpecies> {
+    fun getPetSpecies(speciesId: String): Observable<PetSpecies> {
         return petRepository.getPetSpecies(speciesId)
                 .observeOn(postExecutorThread)
                 .subscribeOn(workExecutorThread)

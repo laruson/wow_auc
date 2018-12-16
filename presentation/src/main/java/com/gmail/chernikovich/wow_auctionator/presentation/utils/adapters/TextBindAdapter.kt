@@ -36,3 +36,20 @@ fun textColor(view: TextView, value: String) {
         "5" -> view.setTextColor(ContextCompat.getColor(App.instance, R.color.legendary))
     }
 }
+
+@BindingAdapter("android:textPetType")
+fun petType(view: TextView, value: Int) {
+    when (value) {
+        0 -> view.text = App.instance.getString(R.string.humanoid)
+        1 -> view.text = App.instance.getString(R.string.dragonkin)
+        2 -> view.text = App.instance.getString(R.string.flying)
+        3 -> view.text = App.instance.getString(R.string.undead)
+        4 -> view.text = App.instance.getString(R.string.critter)
+        5 -> view.text = App.instance.getString(R.string.magical)
+        6 -> view.text = App.instance.getString(R.string.elemental)
+        7 -> view.text = App.instance.getString(R.string.beast)
+        8 -> view.text = App.instance.getString(R.string.water)
+        9 -> view.text = App.instance.getString(R.string.mechanical)
+
+    }
+}

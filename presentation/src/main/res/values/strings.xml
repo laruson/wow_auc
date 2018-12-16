@@ -21,5 +21,17 @@
     <string name="realm">Realm</string>
     <string name="ready">Ready</string>
     <string name="us_or_eu">us or eu</string>
+    <string name="vs">Vs.</string>
+    <string name="skills">Skills:</string>
+    <string name="humanoid">humanoid</string>
+    <string name="dragonkin">dragonkin</string>
+    <string name="flying">flying</string>
+    <string name="undead">undead</string>
+    <string name="critter">critter</string>
+    <string name="magical">magical</string>
+    <string name="elemental">elemental</string>
+    <string name="beast">beast</string>
+    <string name="water">water</string>
+    <string name="mechanical">mechanical</string>
 
 </resources>

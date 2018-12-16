@@ -8,6 +8,7 @@ import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.find.adapter.ItemsItemAdapter
+import com.gmail.chernikovich.wow_auctionator.presentation.utils.ITEM_CONTENT
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
 
@@ -26,7 +27,7 @@ class FindItemViewModel : BaseViewModel<AuctionRouter>() {
         App.appComponent.injectViewModel(this)
         addToDisposable(adapter.clickItemSubject.subscribeBy (
                 onNext = {
-                    router?.goToInfo(it.item.id,it.item.image)
+                    router?.goToInfo(it.item.id,it.item.image, ITEM_CONTENT)
                 },
                 onError = {
                     router?.showError(it)

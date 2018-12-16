@@ -1,4 +1,4 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,11 +14,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/itemSearch"
+            android:inputType="text"
+            android:background="@color/tabBackGround"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/search_item"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/common"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

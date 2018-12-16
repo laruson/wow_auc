@@ -60,7 +60,7 @@ fun PetSpeciesResponse.transformToDomain(): PetSpecies {
             canBattle = canBattle,
             icon = "https://wow.zamimg.com/images/wow/icons/large/$icon.jpg",
             description = description,
-            petAbility = petAbility)
+            petAbility = abilities)
 }
 
 fun PetListResponse.transformToDomain():PetList{

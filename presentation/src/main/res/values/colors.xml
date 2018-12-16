@@ -13,5 +13,7 @@
     <color name="bacground_item">#719e9b9b</color>
 
     <color name="black">#000000</color>
+    <color name="tabBackGround">#a3c1a78e</color>
+    <color name="hintColor">#e4dfd2</color>
 
 </resources>
