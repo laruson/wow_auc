@@ -16,25 +16,28 @@
 
         <ImageView
             android:id="@+id/imagePet"
-            android:src="@{viewModel.icon}"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:src="@{viewModel.icon}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewNamePet"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
             android:text="@{viewModel.name}"
             android:textColor="@{viewModel.textColor}"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewFamily"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewFamily"
             app:layout_constraintTop_toTopOf="@+id/imageViewFamily" />
 
@@ -79,34 +82,43 @@
 
         <TextView
             android:id="@+id/textViewHealth"
-            android:text="@{viewModel.healthText}"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{viewModel.healthText}"
             android:textSize="12sp"
+            android:textColor="@color/common"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewHealth"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewPower"
             app:layout_constraintStart_toEndOf="@+id/imageViewHealth"
             app:layout_constraintTop_toTopOf="@+id/imageViewHealth" />
 
         <TextView
             android:id="@+id/textViewPower"
-            android:text="@{viewModel.powerText}"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textColor="@color/common"
+            android:layout_marginEnd="8dp"
+            android:text="@{viewModel.powerText}"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewPower"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSpeed"
             app:layout_constraintStart_toEndOf="@+id/imageViewPower"
             app:layout_constraintTop_toTopOf="@+id/imageViewPower" />
 
         <TextView
             android:id="@+id/textViewSpeed"
-            android:text="@{viewModel.speedText}"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/common"
+            android:text="@{viewModel.speedText}"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewSpeed"
             app:layout_constraintTop_toTopOf="@+id/imageViewSpeed" />
 

@@ -29,7 +29,7 @@ class InfoActivity : BaseMvvmActivity<InfoViewModel, InfoRouter, ActivityInfoBin
             router.showPetInfo(id, qualityId)
         }
         else{
-            router.showItemInfo(id, img)
+            router.showItemInfo(id, img, qualityId.toString())
         }
     }
 

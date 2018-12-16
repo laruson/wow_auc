@@ -9,6 +9,7 @@ import com.gmail.chernikovich.wow_auctionator.di.moduls.repository.RepositoryMod
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionActivity
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.find.FindItemViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.group.GroupViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.group.adapter.GroupItemAdapter
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.pet.PetViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.token.TokenViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.InfoViewModel
@@ -50,5 +51,5 @@ interface AppComponent {
 
     fun injectViewModel(viewModel: SettingsViewModel)
 
-
+    fun injectAdapter(adapter: GroupItemAdapter)
 }

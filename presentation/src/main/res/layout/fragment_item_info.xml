@@ -26,6 +26,7 @@
             android:id="@+id/infoItem"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/bacground_item"
             app:visibility="@{viewModel.isVisibility}">
 
 
@@ -35,8 +36,8 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@mipmap/gold_mini"
                 android:text="@{viewModel.historicalPriceServerGold}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/historicalPrice"
                 app:layout_constraintStart_toStartOf="@+id/marketValueServerGold"
                 app:layout_constraintTop_toTopOf="@+id/historicalPrice" />
@@ -46,25 +47,23 @@
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.historicalPriceServerSilver}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/historicalPriceServerGold"
                 app:layout_constraintStart_toEndOf="@+id/historicalPriceServerGold"
                 app:layout_constraintTop_toTopOf="@+id/historicalPriceServerGold" />
 
             <TextView
                 android:id="@+id/historicalPriceServerCopper"
-                android:layout_width="32dp"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-
                 android:drawableEnd="@mipmap/copper"
                 android:text="@{viewModel.historicalPriceServerCopper}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/historicalPriceServerSilver"
                 app:layout_constraintStart_toEndOf="@+id/historicalPriceServerSilver"
                 app:layout_constraintTop_toTopOf="@+id/historicalPriceServerSilver" />
@@ -74,10 +73,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@mipmap/gold_mini"
-
                 android:text="@{viewModel.marketValueServerGold}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/marketValue"
                 app:layout_constraintStart_toStartOf="@+id/minBuyoutServerGold"
                 app:layout_constraintTop_toTopOf="@+id/marketValue" />
@@ -87,65 +85,63 @@
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.marketValueServerSilver}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/marketValueServerGold"
                 app:layout_constraintStart_toEndOf="@+id/marketValueServerGold"
                 app:layout_constraintTop_toTopOf="@+id/marketValueServerGold" />
 
             <TextView
                 android:id="@+id/marketValueServerCopper"
-                android:layout_width="32dp"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/copper"
-
                 android:text="@{viewModel.marketValueServerCopper}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/marketValueServerSilver"
                 app:layout_constraintStart_toEndOf="@+id/marketValueServerSilver"
                 app:layout_constraintTop_toTopOf="@+id/marketValueServerSilver" />
 
             <TextView
                 android:id="@+id/minBuyoutServerCopper"
-                android:layout_width="32dp"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-
                 android:drawableEnd="@mipmap/copper"
                 android:text="@{viewModel.minBuyoutServerCopper}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/minBuyoutServerSilver"
                 app:layout_constraintStart_toEndOf="@+id/minBuyoutServerSilver"
                 app:layout_constraintTop_toTopOf="@+id/minBuyoutServerSilver" />
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-
-                android:layout_marginStart="44dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="64dp"
                 android:src="@{viewModel.img}"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewItemName"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-
+                android:layout_marginEnd="16dp"
                 android:text="@{viewModel.itemName}"
-                android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textColor="@{viewModel.textColor}"
+                android:textSize="22sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/icon"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/icon"
                 app:layout_constraintTop_toTopOf="@+id/icon" />
 
@@ -158,8 +154,9 @@
                 android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:text="@string/stat_name"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/icon"
                 app:layout_constraintWidth_percent="0.33" />
@@ -171,8 +168,9 @@
                 android:layout_marginStart="60dp"
                 android:gravity="center"
                 android:text="@{viewModel.serverName}"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/statName"
                 app:layout_constraintTop_toTopOf="@+id/statName"
                 app:layout_constraintWidth_percent="0.33" />
@@ -184,8 +182,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="40dp"
                 android:text="@string/minimum_buyout"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/statName" />
 
@@ -196,9 +195,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/market_value"
-
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/minimumBuyout" />
 
@@ -207,11 +206,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
-
                 android:layout_marginTop="20dp"
                 android:text="@string/historical_price"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/marketValue" />
 
@@ -220,12 +219,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
-
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/quantity"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/serverName"
                 app:layout_constraintStart_toStartOf="@+id/statName"
                 app:layout_constraintTop_toBottomOf="@+id/historicalPrice" />
@@ -234,12 +233,11 @@
                 android:id="@+id/minBuyoutServerSilver"
                 android:layout_width="32dp"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="8dp"
                 android:drawableEnd="@mipmap/silver"
                 android:text="@{viewModel.minBuyoutServerSilver}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/minBuyoutServerGold"
                 app:layout_constraintStart_toEndOf="@+id/minBuyoutServerGold"
                 app:layout_constraintTop_toTopOf="@+id/minBuyoutServerGold" />
@@ -247,25 +245,23 @@
             <TextView
                 android:id="@+id/minBuyoutServerGold"
                 android:layout_width="0dp"
-
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:drawableEnd="@mipmap/gold_mini"
                 android:text="@{viewModel.minBuyoutServerGold}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/common"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/minimumBuyout"
                 app:layout_constraintStart_toEndOf="@+id/minimumBuyout"
                 app:layout_constraintTop_toTopOf="@+id/minimumBuyout" />
 
             <TextView
                 android:id="@+id/quantityServer"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-
                 android:text="@{viewModel.quantityServer}"
-                android:textColor="@color/black"
+                android:textColor="@color/common"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/serverName"
                 app:layout_constraintStart_toStartOf="@+id/serverName"
@@ -275,15 +271,21 @@
                 android:id="@+id/addToGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/wow_button"
+                android:fontFamily="@font/arial_narrow"
                 android:onClick="@{viewModel::addItem}"
                 android:text="@string/saveInMyGroup"
+                android:textAllCaps="false"
+                android:textColor="@color/common"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quantityServer" />
+
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 </layout>

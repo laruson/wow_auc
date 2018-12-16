@@ -3,7 +3,6 @@ package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragm
 import andrey.chernikovich.domain.entity.item.BaseItem
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
-import android.util.Log
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseItemViewModel
 
 class GroupItemViewModel : BaseItemViewModel<BaseItem>() {

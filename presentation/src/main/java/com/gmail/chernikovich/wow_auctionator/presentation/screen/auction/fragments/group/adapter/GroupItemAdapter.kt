@@ -3,6 +3,7 @@ package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragm
 import andrey.chernikovich.domain.entity.item.BaseItem
 import andrey.chernikovich.domain.usecase.group.DeleteGroupItemUseCase
 import android.view.ViewGroup
+import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerAdapter
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseViewHolder
 import kotlinx.android.synthetic.main.item_my_group_item.view.*
@@ -14,6 +15,10 @@ class GroupItemAdapter : BaseRecyclerAdapter<
 
     @Inject
     lateinit var deleteItem : DeleteGroupItemUseCase
+
+    init {
+        App.appComponent.injectAdapter(this)
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int)
             : GroupItemViewHolder {

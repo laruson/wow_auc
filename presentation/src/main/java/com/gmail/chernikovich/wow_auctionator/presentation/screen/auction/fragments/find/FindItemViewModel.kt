@@ -15,9 +15,9 @@ import javax.inject.Inject
 class FindItemViewModel : BaseViewModel<AuctionRouter>() {
 
     @Inject
-    lateinit var itemsUseCase : GetItemsUseCase
+    lateinit var itemsUseCase: GetItemsUseCase
     @Inject
-    lateinit var searchItem : SearchItemUseCase
+    lateinit var searchItem: SearchItemUseCase
 
     val isProgressEnabled = ObservableBoolean(true)
 
@@ -25,9 +25,12 @@ class FindItemViewModel : BaseViewModel<AuctionRouter>() {
 
     init {
         App.appComponent.injectViewModel(this)
-        addToDisposable(adapter.clickItemSubject.subscribeBy (
+        addToDisposable(adapter.clickItemSubject.subscribeBy(
                 onNext = {
-                    router?.goToInfo(it.item.id,it.item.image, ITEM_CONTENT)
+                    router?.goToInfo(id = it.item.id,
+                            img = it.item.image,
+                            content = ITEM_CONTENT,
+                            qualityId = it.item.quality.toInt())
                 },
                 onError = {
                     router?.showError(it)

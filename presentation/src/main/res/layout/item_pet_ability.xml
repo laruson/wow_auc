@@ -48,13 +48,14 @@
 
             <TextView
                 android:id="@+id/textViewSkillName"
-                android:textColor="@color/common"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="8dp"
                 android:text="@{viewModel.skillName}"
+                android:textColor="@color/common"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewSkillType"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageViewSkillType"
@@ -102,11 +103,12 @@
 
             <TextView
                 android:id="@+id/textViewVs1"
-                android:textColor="@color/common"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/vs"
+                android:textColor="@color/common"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewUp"
                 app:layout_constraintStart_toEndOf="@+id/imageViewUp"
                 app:layout_constraintTop_toTopOf="@+id/imageViewUp" />
@@ -120,16 +122,18 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewDown"
                 app:layout_constraintEnd_toEndOf="@+id/textViewVs1"
                 app:layout_constraintStart_toStartOf="@+id/textViewVs1"
-                app:layout_constraintTop_toTopOf="@+id/imageViewDown" />
+                app:layout_constraintTop_toTopOf="@+id/imageViewDown"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewVsUpType"
-                android:textPetType="@{viewModel.vsUpType}"
                 android:layout_width="0dp"
-                android:textColor="@color/common"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:textColor="@color/common"
+                android:textPetType="@{viewModel.vsUpType}"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewVsUp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageViewVsUp"
@@ -137,11 +141,12 @@
 
             <TextView
                 android:id="@+id/textViewVsDownType"
-                android:textPetType="@{viewModel.vsDownType}"
-                android:textColor="@color/common"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:textColor="@color/common"
+                android:textPetType="@{viewModel.vsDownType}"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewVsDown"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textViewVsUpType"

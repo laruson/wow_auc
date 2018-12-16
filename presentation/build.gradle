@@ -12,6 +12,7 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
+        vectorDrawables.useSupportLibrary = true
         versionName "1.0"
     }
 

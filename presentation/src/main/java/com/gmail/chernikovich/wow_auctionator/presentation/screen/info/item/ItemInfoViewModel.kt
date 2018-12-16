@@ -7,6 +7,7 @@ import andrey.chernikovich.domain.usecase.item.GetItemByIdUseCase
 import android.content.SharedPreferences
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
+import android.databinding.ObservableInt
 import android.view.View
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
@@ -45,11 +46,14 @@ class ItemInfoViewModel: BaseViewModel<InfoRouter>() {
     val quantityServer = ObservableField<String>("")
     val isVisibility = ObservableBoolean(false)
 
+    val textColor = ObservableField<String>(EMPTY)
+
     init {
         App.appComponent.injectViewModel(this)
     }
 
-    fun setInfoItem(id: String, img: String) {
+    fun setInfoItem(id: String, img: String, qualityId:String) {
+        textColor.set(qualityId)
         var money: ArrayList<Int>
         isVisibility.set(false)
         addToDisposable(itemById

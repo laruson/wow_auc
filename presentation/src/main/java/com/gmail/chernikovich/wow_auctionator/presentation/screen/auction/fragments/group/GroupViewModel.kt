@@ -21,7 +21,10 @@ class GroupViewModel : BaseViewModel<AuctionRouter>() {
 
         addToDisposable(adapter.clickItemSubject.subscribeBy(
                 onNext = {
-                    router?.goToInfo(it.item.id, it.item.image, ITEM_CONTENT)
+                    router?.goToInfo(id = it.item.id,
+                            img = it.item.image,
+                            qualityId = it.item.quality.toInt(),
+                            content = ITEM_CONTENT)
                 },
                 onError = {
                     router?.showError(it)

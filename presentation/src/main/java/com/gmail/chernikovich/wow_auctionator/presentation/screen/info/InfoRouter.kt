@@ -21,9 +21,9 @@ class InfoRouter(activity: InfoActivity) : BaseRouter<InfoActivity>(activity) {
                 container, true)
     }
 
-    fun showItemInfo(id:String, img:String){
+    fun showItemInfo(id:String, img:String, qualityId:String){
         replaceFragment(activity.supportFragmentManager,
-                ItemInfoFragment.getInstance(id, img),
+                ItemInfoFragment.getInstance(id, img, qualityId),
                 container, true)
     }
 }

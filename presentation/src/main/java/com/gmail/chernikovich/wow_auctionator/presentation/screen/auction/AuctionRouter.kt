@@ -11,13 +11,12 @@ class AuctionRouter(activity: AuctionActivity) : BaseRouter<AuctionActivity>(act
 
     fun goToInfo(id: String, img: String="", content:String, qualityId:Int=0) {
         val intent = Intent(activity, InfoActivity::class.java)
+
         intent.putExtra(CONTENT, content)
         intent.putExtra(ID_EXTRA, id)
-        if (content== PET_CONTENT){
-            intent.putExtra(QUALITY_EXTRA, qualityId)
-        }else{
-            intent.putExtra(IMG_EXTRA, img)
-        }
+        intent.putExtra(QUALITY_EXTRA, qualityId)
+        intent.putExtra(IMG_EXTRA, img)
+
         activity.startActivity(intent)
         activity.finish()
     }
