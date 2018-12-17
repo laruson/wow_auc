@@ -3,11 +3,10 @@ package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragm
 import andrey.chernikovich.domain.entity.item.BaseItem
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
-import android.databinding.ObservableInt
-import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseItemViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 
-class ItemsItemViewModel : BaseItemViewModel<BaseItem>() {
+class ItemsItemViewModel : BaseRecyclerViewModel<BaseItem>() {
 
     val name = ObservableField<String>(EMPTY)
     val image = ObservableField<String>(EMPTY)

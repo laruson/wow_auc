@@ -6,7 +6,7 @@ import com.android.databinding.library.baseAdapters.BR
 
 abstract class BaseViewHolder<
         Entity,
-        VM : BaseItemViewModel<Entity>,
+        VM : BaseRecyclerViewModel<Entity>,
         B : ViewDataBinding>
 (val binding: B, val viewModel: VM)
     : RecyclerView.ViewHolder(binding.root) {

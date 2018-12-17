@@ -2,10 +2,13 @@ package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragm
 
 import andrey.chernikovich.domain.entity.item.BaseItem
 import andrey.chernikovich.domain.usecase.group.DeleteGroupItemUseCase
+import android.databinding.Observable
+import android.databinding.ObservableField
 import android.view.ViewGroup
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerAdapter
 import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseViewHolder
+import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 import kotlinx.android.synthetic.main.item_my_group_item.view.*
 import javax.inject.Inject
 

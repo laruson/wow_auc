@@ -1,6 +1,7 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragments.group
 
 import andrey.chernikovich.domain.usecase.group.GetGroupItemUseCase
+import android.util.Log
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter
@@ -18,13 +19,12 @@ class GroupViewModel : BaseViewModel<AuctionRouter>() {
 
     init {
         App.appComponent.injectViewModel(this)
-
         addToDisposable(adapter.clickItemSubject.subscribeBy(
                 onNext = {
                     router?.goToInfo(id = it.item.id,
                             img = it.item.image,
-                            qualityId = it.item.quality.toInt(),
-                            content = ITEM_CONTENT)
+                            content = ITEM_CONTENT,
+                            qualityId = it.item.quality.toInt())
                 },
                 onError = {
                     router?.showError(it)

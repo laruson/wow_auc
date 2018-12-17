@@ -19,7 +19,7 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(items: ItemDB)
 
-    @Query("SELECT * FROM loadItems LIMIT 500")
+    @Query("SELECT * FROM loadItems ORDER BY RANDOM() LIMIT 2000")
     fun getItems(): Flowable<List<ItemDB>>
 
     @Query("SELECT * FROM loadItems LIMIT :count")

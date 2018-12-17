@@ -14,10 +14,6 @@ import javax.inject.Inject
 
 
 class App : Application(){
-
-    @Inject
-    lateinit var shared: SharedPref
-
     companion object {
         lateinit var instance: App
         @JvmStatic
@@ -36,10 +32,6 @@ class App : Application(){
     override fun onCreate() {
         appComponent.inject(this)
         super.onCreate()
-
-//        shared.putValue(ACCESS_TOKEN, ACCESS_TOKEN_APP)
-//        shared.putValue(LOCALE, LOCALE_APP)
-//        shared.putValueBoolean(IS_LOAD_COMPLITE, false)
 
         Fabric.with(this, Crashlytics())
     }

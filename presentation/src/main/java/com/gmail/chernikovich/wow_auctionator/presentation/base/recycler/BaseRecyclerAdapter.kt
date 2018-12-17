@@ -1,12 +1,11 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.base.recycler
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import io.reactivex.subjects.PublishSubject
 
 abstract class BaseRecyclerAdapter<
         Entity,
-        VM : BaseItemViewModel<Entity>>
+        VM : BaseRecyclerViewModel<Entity>>
 (val itemList: MutableList<Entity> = mutableListOf())
     : RecyclerView.Adapter<BaseViewHolder<Entity, VM, *>>() {
 

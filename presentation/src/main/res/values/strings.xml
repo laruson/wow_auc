@@ -33,5 +33,6 @@
     <string name="beast">beast</string>
     <string name="water">water</string>
     <string name="mechanical">mechanical</string>
+    <string name="find_in_auction">Find in auction</string>
 
 </resources>

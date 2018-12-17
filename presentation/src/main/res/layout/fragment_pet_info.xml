@@ -1,4 +1,4 @@
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -25,6 +25,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
+            app:visibility="@{viewModel.isVisibility}"
             android:layout_height="match_parent"
             android:background="@color/bacground_item">
 
@@ -72,13 +73,11 @@
                 android:id="@+id/recycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintHeight_percent=".62"
+                app:layout_constraintHeight_percent=".51"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSkills">
-
-            </android.support.v7.widget.RecyclerView>
+                app:layout_constraintTop_toBottomOf="@+id/textViewSkills"/>
 
             <TextView
                 android:id="@+id/textViewSkills"

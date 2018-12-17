@@ -3,14 +3,13 @@ package com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.fragm
 import andrey.chernikovich.domain.entity.pet.Pet
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
-import android.util.Log
-import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseItemViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.HEALTH
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.POWER
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.SPEED
 
-class PetItemViewModel : BaseItemViewModel<Pet>() {
+class PetItemViewModel : BaseRecyclerViewModel<Pet>() {
 
     val name = ObservableField<String>(EMPTY)
     val icon = ObservableField<String>(EMPTY)

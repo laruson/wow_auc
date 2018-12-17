@@ -6,6 +6,7 @@ import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.util.Log
+import android.view.View
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.info.InfoRouter
@@ -32,19 +33,27 @@ class PetInfoViewModel : BaseViewModel<InfoRouter>() {
     }
 
     fun setInfoPet(id: String, qualityId: Int) {
+        isVisibility.set(false)
         petNameColor.set(qualityId.toString())
         addToDisposable(petSpecies.getPetSpecies(id).subscribeBy(
                 onNext = {
                     icon.set(it.icon)
                     petName.set(it.name)
                     adapter.setItems(it.petAbility)
-                    isVisibility.set(true)
                     petDescription.set(it.description)
                 },
                 onError = {
                     router?.showError(it)
+                    isVisibility.set(false)
+                },
+                onComplete = {
+                    isVisibility.set(true)
                 }
         ))
 
+    }
+
+    fun findInAuction(view: View){
+//        router.showItemInfo(id = )
     }
 }

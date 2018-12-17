@@ -4,6 +4,7 @@ import andrey.chernikovich.domain.entity.item.ItemSearch
 import andrey.chernikovich.domain.usecase.item.GetItemsUseCase
 import andrey.chernikovich.domain.usecase.item.SearchItemUseCase
 import android.databinding.ObservableBoolean
+import android.util.Log
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.screen.auction.AuctionRouter

@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
+import android.util.Log
 import android.view.View
 import com.gmail.chernikovich.wow_auctionator.app.App
 import com.gmail.chernikovich.wow_auctionator.presentation.base.BaseViewModel
@@ -60,7 +61,7 @@ class ItemInfoViewModel: BaseViewModel<InfoRouter>() {
                 .getItemById(id)
                 .subscribeBy(
                         onNext = {
-                            item = BaseItem(it.id, it.name, img)
+                            item = BaseItem(it.id, it.name, img, quality =  qualityId)
                             this.img.set(img)
                             serverName.set(sharedPreferences.getString(REALM, EMPTY))
                             itemName.set(it.name)

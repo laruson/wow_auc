@@ -1,15 +1,14 @@
 package com.gmail.chernikovich.wow_auctionator.presentation.screen.info.pet.adapter
 
 import andrey.chernikovich.domain.entity.pet.PetAbility
-import andrey.chernikovich.domain.entity.pet.PetSpecies
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
-import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseItemViewModel
+import com.gmail.chernikovich.wow_auctionator.presentation.base.recycler.BaseRecyclerViewModel
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.EMPTY
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.strong
 import com.gmail.chernikovich.wow_auctionator.presentation.utils.weak
 
-class PetAbilityItemViewModel : BaseItemViewModel<PetAbility>() {
+class PetAbilityItemViewModel : BaseRecyclerViewModel<PetAbility>() {
 
     val abilityIcon = ObservableField<String>(EMPTY)
     val skillType = ObservableInt()
